@@ -29,19 +29,18 @@
   .cover-top{display:flex;align-items:flex-start;gap:12px;position:relative;z-index:1;}
   .cover-avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(22,50,79,0.45);flex:0 0 auto;}
   .cover-avatar.placeholder{display:flex;align-items:center;justify-content:center;font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:19px;background:rgba(255,255,255,0.35);color:var(--hdr-ink);}
-  .cover-titles{flex:1;min-width:0;}
-  .cover-titles h1{font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:23px;margin:0 0 2px;letter-spacing:0.3px;color:var(--hdr-ink);}
-  .cover-name{margin:0;font-size:13px;color:rgba(22,50,79,0.85);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .cover-right{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:5px;}
+  .cover-info{flex:1;min-width:0;}
+  .ci-name{margin:0;font-size:14px;font-weight:600;color:var(--hdr-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .ci-phone{margin:2px 0 0;font-size:12px;color:rgba(22,50,79,0.85);}
+  .ci-addr{margin:1px 0 0;font-size:11px;color:rgba(22,50,79,0.75);}
+  .cover-right{flex:0 0 auto;}
   .menu-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(22,50,79,0.4);background:rgba(255,255,255,0.3);color:var(--hdr-ink);font-size:22px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;padding:0 0 4px;}
   .menu-btn:active{background:rgba(255,255,255,0.55);}
-  .cover-phone{font-size:12px;color:rgba(22,50,79,0.8);}
   .balance-strip{margin-top:14px;display:flex;align-items:baseline;justify-content:space-between;border-top:1px dashed rgba(22,50,79,0.4);padding-top:12px;position:relative;z-index:1;}
   .balance-strip .label{font-size:12px;color:rgba(22,50,79,0.8);}
   .balance-strip .amount{font-family:'Noto Serif Bengali',serif;font-size:24px;font-weight:700;color:var(--hdr-ink);}
   .amount.neg{color:#8C2F2F;}
 
-  /* ⋮ মেনু */
   .menu-backdrop{position:fixed;inset:0;background:rgba(32,38,31,0.35);display:none;z-index:60;}
   .menu-backdrop.open{display:block;}
   .menu-panel{position:fixed;top:60px;right:12px;width:216px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.28);padding:6px;display:none;z-index:61;}
@@ -71,6 +70,7 @@
   .seg button{flex:1;padding:9px;border:none;background:#fff;font-size:13px;font-family:'Noto Sans Bengali',sans-serif;color:var(--ink-soft);cursor:pointer;}
   .seg button.on.expense{background:var(--maroon);color:#fff;}
   .seg button.on.income{background:var(--gold);color:#fff;}
+  .seg button.on.plain{background:var(--green);color:#fff;font-weight:600;}
 
   .btn{width:100%;padding:12px;border:none;border-radius:7px;background:var(--green);color:var(--paper);font-size:14px;font-family:'Noto Sans Bengali',sans-serif;font-weight:600;cursor:pointer;letter-spacing:0.2px;}
   .btn:active{background:var(--green-deep);}
@@ -110,7 +110,6 @@
   .month-picker{display:flex;align-items:center;gap:10px;margin-bottom:13px;flex-wrap:wrap;}
   .month-picker input{flex:1;min-width:120px;}
 
-  /* Debt */
   .person-card{border:1px solid var(--line);border-radius:9px;background:#fff;margin-bottom:9px;overflow:hidden;}
   .person-head{display:flex;justify-content:space-between;align-items:center;padding:12px 13px;cursor:pointer;gap:10px;}
   .person-head .name{font-weight:600;font-size:13.5px;}
@@ -135,7 +134,6 @@
   .reminder-banner .r-item{display:flex;justify-content:space-between;align-items:center;padding:5px 0;gap:8px;}
   .reminder-banner .r-item button{font-size:11px;padding:5px 9px;}
 
-  /* Budget */
   .budget-row{margin-bottom:12px;}
   .budget-row .bh{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px;}
   .progress-track{height:8px;background:var(--paper-dark);border-radius:4px;overflow:hidden;}
@@ -144,7 +142,6 @@
   .progress-fill.over{background:var(--maroon);}
   .budget-alert{font-size:11px;color:var(--maroon);margin-top:3px;}
 
-  /* Charts */
   .pie-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
   .pie-legend .li{display:flex;align-items:center;gap:5px;font-size:11.5px;}
   .pie-legend .sw{width:9px;height:9px;border-radius:2px;flex:0 0 auto;}
@@ -164,8 +161,8 @@
   .storage-note{background:#EFE7D3;border-radius:8px;padding:10px 11px;font-size:11.5px;color:var(--ink-soft);margin-bottom:12px;line-height:1.5;}
 
   .print-only{display:none;}
+  #personStatement{display:none;}
 
-  /* Lock screen */
   .lock-backdrop{position:fixed;inset:0;background:var(--hdr-ink);display:none;align-items:center;justify-content:center;z-index:100;padding:16px;}
   .lock-backdrop.open{display:flex;}
   .lock-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 22px;width:min(340px,92vw);text-align:center;box-shadow:0 12px 32px rgba(0,0,0,.35);}
@@ -179,13 +176,23 @@
   @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
   .shake{animation:shake .28s ease;}
 
+  .contact-row{display:flex;align-items:center;gap:12px;}
+  .contact-photo{width:37px;height:48px;object-fit:cover;border-radius:4px;border:1px solid var(--line);flex:0 0 auto;display:none;}
+  .contact-avatar{width:37px;height:48px;border-radius:4px;background:var(--paper-dark);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--ink-soft);flex:0 0 auto;}
+  .contact-info{flex:1;min-width:0;}
+  .contact-info .cn{font-weight:700;font-size:13px;color:var(--green-deep);}
+  .contact-info .cl{font-size:12px;margin-top:2px;word-break:break-all;}
+  .contact-info .cl a{color:var(--green-deep);text-decoration:none;}
+
   @media print{
     body{background:#fff;}
     .app{background:#fff !important;max-width:100%;padding-bottom:0;}
     header.cover, .no-print, .modal-backdrop, .lock-backdrop, .menu-panel, .menu-backdrop{display:none !important;}
     main > section{display:none !important;}
-    #report{display:block !important;}
-    #report .card{box-shadow:none;border:none;padding:0;}
+    body:not(.print-person) #report{display:block !important;}
+    body.print-person #report{display:none !important;}
+    body.print-person #personStatement{display:block !important;}
+    body:not(.print-person) #report .card, body.print-person #personStatement .card{box-shadow:none;border:none;padding:0;}
     .print-only{display:block;font-size:11px;color:#333;margin-top:4px;}
   }
   @page{margin:12mm;}
@@ -211,25 +218,25 @@
 <div class="lock-backdrop" id="lockOverlay">
   <div class="lock-card" id="lockCard">
     <div class="lock-emoji">🔒</div>
-    <h2>হিসাব খাতা লক করা আছে</h2>
-    <p class="sub">চালিয়ে যেতে আপনার PIN দিন</p>
+    <h2 data-i18n="lockT">হিসাব খাতা লক করা আছে</h2>
+    <p class="sub" data-i18n="lockSub">চালিয়ে যেতে আপনার PIN দিন</p>
     <input type="password" class="lock-input" id="lockPin" inputmode="numeric" pattern="[0-9]*" maxlength="8" autocomplete="off" placeholder="••••">
-    <button class="btn" id="unlockBtn">খুলুন</button>
+    <button class="btn" id="unlockBtn" data-i18n="unlock">খুলুন</button>
     <div class="lock-error" id="lockError"></div>
-    <button class="lock-forgot" id="forgotPinBtn">PIN ভুলে গেছি</button>
+    <button class="lock-forgot" id="forgotPinBtn" data-i18n="forgot">PIN ভুলে গেছি</button>
   </div>
 </div>
 
 <!-- ===== ⋮ মেনু ===== -->
 <div class="menu-backdrop" id="menuBackdrop"></div>
 <div class="menu-panel no-print" id="menuPanel">
-  <button class="menu-item active" data-tab="entry"><span class="mi-ico">🏠</span>এন্ট্রি</button>
-  <button class="menu-item" data-tab="list"><span class="mi-ico">📋</span>তালিকা</button>
-  <button class="menu-item" data-tab="debt"><span class="mi-ico">🤝</span>ধার-দেনা</button>
-  <button class="menu-item" data-tab="dashboard"><span class="mi-ico">📊</span>ড্যাশবোর্ড</button>
-  <button class="menu-item" data-tab="analysis"><span class="mi-ico">📈</span>বিশ্লেষণ</button>
-  <button class="menu-item" data-tab="report"><span class="mi-ico">🧾</span>রিপোর্ট</button>
-  <button class="menu-item" data-tab="settings"><span class="mi-ico">⚙️</span>সেটিংস</button>
+  <button class="menu-item active" data-tab="entry"><span class="mi-ico">🏠</span><span data-i18n="mEntry">এন্ট্রি</span></button>
+  <button class="menu-item" data-tab="list"><span class="mi-ico">📋</span><span data-i18n="mList">তালিকা</span></button>
+  <button class="menu-item" data-tab="debt"><span class="mi-ico">🤝</span><span data-i18n="mDebt">ধার-দেনা</span></button>
+  <button class="menu-item" data-tab="dashboard"><span class="mi-ico">📊</span><span data-i18n="mDash">ড্যাশবোর্ড</span></button>
+  <button class="menu-item" data-tab="analysis"><span class="mi-ico">📈</span><span data-i18n="mAna">বিশ্লেষণ</span></button>
+  <button class="menu-item" data-tab="report"><span class="mi-ico">🧾</span><span data-i18n="mRep">রিপোর্ট</span></button>
+  <button class="menu-item" data-tab="settings"><span class="mi-ico">⚙️</span><span data-i18n="mSet">সেটিংস</span></button>
 </div>
 
 <div class="app">
@@ -237,18 +244,18 @@
   <header class="cover">
     <div class="cover-top">
       <div class="cover-avatar placeholder" id="coverAvatar">?</div>
-      <div class="cover-titles">
-        <h1>হিসাব খাতা</h1>
-        <p class="cover-name" id="coverName">নাম যোগ করুন</p>
+      <div class="cover-info">
+        <p class="ci-name" id="coverName">নাম যোগ করুন</p>
+        <p class="ci-phone" id="coverPhone"></p>
+        <p class="ci-addr" id="coverAddr"></p>
       </div>
       <div class="cover-right">
         <button type="button" class="menu-btn" id="menuBtn" title="মেনু">⋮</button>
-        <div class="cover-phone" id="coverPhone"></div>
       </div>
     </div>
     <div class="balance-strip">
       <div>
-        <div class="label">বর্তমানে হাতে জমা</div>
+        <div class="label" data-i18n="onHand">বর্তমানে হাতে জমা</div>
         <div class="amount" id="headerBalance">৳ ০</div>
       </div>
     </div>
@@ -264,13 +271,13 @@
         <div id="quickChips" class="quick-chips"></div>
 
         <div class="seg">
-          <button type="button" id="segExpense" class="on expense">খরচ</button>
-          <button type="button" id="segIncome" class="income">আয়</button>
+          <button type="button" id="segExpense" class="on expense" data-i18n="exp">খরচ</button>
+          <button type="button" id="segIncome" class="income" data-i18n="inc">আয়</button>
         </div>
 
         <div class="row2">
-          <div class="field" style="flex:1;"><label>তারিখ</label><input type="date" id="fDate"></div>
-          <div class="field" style="flex:1.4;"><label>পরিমাণ (৳)</label><input type="number" id="fAmount" placeholder="০" inputmode="decimal"></div>
+          <div class="field" style="flex:1;"><label data-i18n="date">তারিখ</label><input type="date" id="fDate"></div>
+          <div class="field" style="flex:1.4;"><label data-i18n="amt">পরিমাণ (৳)</label><input type="number" id="fAmount" placeholder="০" inputmode="decimal"></div>
         </div>
 
         <div class="field">
@@ -278,34 +285,34 @@
           <select id="fCategory"></select>
         </div>
 
-        <div class="field"><label>নোট (ঐচ্ছিক)</label><input type="text" id="fNote" placeholder="যেমনঃ কাঁচাবাজার, রিকশা ভাড়া..."></div>
+        <div class="field"><label data-i18n="note">নোট (ঐচ্ছিক)</label><input type="text" id="fNote" data-i18n-ph="notePh" placeholder="যেমনঃ কাঁচাবাজার, রিকশা ভাড়া..."></div>
 
         <div class="field" id="receiptWrap">
-          <label>রিসিট ছবি (ঐচ্ছিক)</label>
+          <label data-i18n="rcpt">রিসিট ছবি (ঐচ্ছিক)</label>
           <input type="file" id="fReceipt" accept="image/*" capture="environment">
           <div id="receiptPreview" style="margin-top:8px;"></div>
         </div>
 
         <div class="field" id="multiItemWrap">
-          <label>আরও আইটেম (ঐচ্ছিক)</label>
-          <div class="hint" style="margin:0 0 9px;">একই দোকানে অনেক কিছু কিনলে এখানে আলাদা আলাদা যোগ করো — প্রতিটার টাকা ওপরের "পরিমাণ"-এ নিজে থেকে যোগ হয়ে যাবে, আর নামগুলো নোটের শেষে কমা দিয়ে জুড়ে যাবে।</div>
+          <label data-i18n="more">আরও আইটেম (ঐচ্ছিক)</label>
+          <div class="hint" style="margin:0 0 9px;" data-i18n="moreHint">একই দোকানে অনেক কিছু কিনলে এখানে আলাদা আলাদা যোগ করো — প্রতিটার টাকা ওপরের "পরিমাণ"-এ নিজে থেকে যোগ হয়ে যাবে, আর নামগুলো নোটের শেষে কমা দিয়ে জুড়ে যাবে।</div>
           <div id="extraItemsList"></div>
-          <button type="button" class="btn ghost small" id="addExtraItemBtn">+ আরেকটা আইটেম</button>
+          <button type="button" class="btn ghost small" id="addExtraItemBtn" data-i18n="addIt">+ আরেকটা আইটেম</button>
         </div>
 
         <div class="btn-row">
           <button class="btn" id="saveBtn">এন্ট্রি সংরক্ষণ করুন</button>
         </div>
         <div class="btn-row" id="cancelEditRow" style="display:none;margin-top:8px;">
-          <button class="btn ghost" id="cancelEditBtn">সম্পাদনা বাতিল করুন</button>
+          <button class="btn ghost" id="cancelEditBtn" data-i18n="cancelE">সম্পাদনা বাতিল করুন</button>
         </div>
         <div class="btn-row" id="deleteEntryRow" style="display:none;margin-top:8px;">
-          <button class="btn warn" id="deleteEntryBtn">এন্ট্রি মুছে ফেলুন</button>
+          <button class="btn warn" id="deleteEntryBtn" data-i18n="delE">এন্ট্রি মুছে ফেলুন</button>
         </div>
       </div>
 
       <div class="card">
-        <h2><span class="dot"></span>সাম্প্রতিক এন্ট্রি</h2>
+        <h2><span class="dot"></span><span data-i18n="recent">সাম্প্রতিক এন্ট্রি</span></h2>
         <div class="entry-list" id="recentList"></div>
       </div>
     </section>
@@ -313,17 +320,17 @@
     <!-- LIST -->
     <section id="list">
       <div class="card">
-        <h2><span class="dot"></span>সব এন্ট্রি</h2>
+        <h2><span class="dot"></span><span data-i18n="allE">সব এন্ট্রি</span></h2>
         <div class="month-picker">
           <input type="month" id="listMonth">
           <select id="listType" style="flex:1;min-width:100px;">
-            <option value="all">সব ধরন</option>
-            <option value="expense">শুধু খরচ</option>
-            <option value="income">শুধু আয়</option>
+            <option value="all" data-i18n="allT">সব ধরন</option>
+            <option value="expense" data-i18n="onlyE">শুধু খরচ</option>
+            <option value="income" data-i18n="onlyI">শুধু আয়</option>
           </select>
         </div>
         <div class="entry-list" id="fullList"></div>
-        <div class="hint">✎ চেপে এন্ট্রির ভেতরে ঢুকলে সম্পাদনা ও মুছে ফেলার অপশন পাবেন।</div>
+        <div class="hint" data-i18n="listHint">✎ চেপে এন্ট্রির ভেতরে ঢুকলে সম্পাদনা ও মুছে ফেলার অপশন পাবেন।</div>
       </div>
     </section>
 
@@ -332,92 +339,96 @@
       <div id="reminderArea"></div>
 
       <div class="card">
-        <h2><span class="dot"></span>সর্বমোট ধার-দেনার অবস্থা</h2>
+        <h2><span class="dot"></span><span data-i18n="debtSum">সর্বমোট ধার-দেনার অবস্থা</span></h2>
         <div class="summary-grid">
-          <div class="box income"><div class="k">আমি পাব (মোট)</div><div class="v" id="totalOwedToMe">৳ ০</div></div>
-          <div class="box expense"><div class="k">আমি দেব (মোট)</div><div class="v" id="totalIOwe">৳ ০</div></div>
+          <div class="box income"><div class="k" data-i18n="iGet">আমি পাব (মোট)</div><div class="v" id="totalOwedToMe">৳ ০</div></div>
+          <div class="box expense"><div class="k" data-i18n="iGive">আমি দেব (মোট)</div><div class="v" id="totalIOwe">৳ ০</div></div>
         </div>
       </div>
 
       <div class="card">
-        <h2><span class="dot"></span>ব্যক্তিভিত্তিক তালিকা</h2>
+        <h2><span class="dot"></span><span data-i18n="pList">ব্যক্তিভিত্তিক তালিকা</span></h2>
         <div id="personList"></div>
       </div>
 
       <div class="card">
-        <h2><span class="dot"></span>লেনদেন যোগ করুন</h2>
+        <h2><span class="dot"></span><span data-i18n="addTx">লেনদেন যোগ করুন</span></h2>
         <div class="field">
-          <label>ব্যক্তি</label>
+          <label data-i18n="person">ব্যক্তি</label>
           <select id="txPerson"></select>
+        </div>
+
+        <div class="btn-row" style="margin-bottom:12px;">
+          <button type="button" class="btn ghost small" id="toggleNewPersonBtn" data-i18n="newP">➕ নতুন ব্যক্তি যোগ করুন</button>
         </div>
 
         <div class="np-box" id="newPersonFields" style="display:none;">
           <div class="photo-picker">
             <div class="preview placeholder" id="npPhotoPreview">?</div>
-            <label class="btn ghost" for="npPhotoInput">ছবি</label>
+            <label class="btn ghost" for="npPhotoInput" data-i18n="pickPh">ছবি বাছাই করো</label>
             <input type="file" id="npPhotoInput" accept="image/*" style="display:none;">
           </div>
-          <div class="field"><label>নাম *</label><input type="text" id="npName" placeholder="যেমনঃ রহিম ভাই"></div>
-          <div class="field"><label>মোবাইল নম্বর</label><input type="tel" id="npPhone" placeholder="যেমনঃ ০১৭xxxxxxxx"></div>
-          <div class="field"><label>ঠিকানা (ঐচ্ছিক)</label><input type="text" id="npAddress" placeholder="গ্রাম/বাসা"></div>
-          <button type="button" class="btn small" id="saveNewPersonBtn">ব্যক্তি সংরক্ষণ করুন</button>
+          <div class="field"><label data-i18n="pName">নাম *</label><input type="text" id="npName" data-i18n-ph="pNamePh" placeholder="যেমনঃ রহিম ভাই"></div>
+          <div class="field"><label data-i18n="pPhone">মোবাইল নম্বর</label><input type="tel" id="npPhone" data-i18n-ph="pPhonePh" placeholder="যেমনঃ ০১৭xxxxxxxx"></div>
+          <div class="field"><label data-i18n="pAddr">ঠিকানা (ঐচ্ছিক)</label><input type="text" id="npAddress" data-i18n-ph="pAddrPh" placeholder="গ্রাম/বাসা"></div>
+          <button type="button" class="btn small" id="saveNewPersonBtn" data-i18n="saveP">ব্যক্তি সংরক্ষণ করুন</button>
         </div>
 
         <div class="row2">
-          <div class="field" style="flex:1;"><label>তারিখ</label><input type="date" id="txDate"></div>
-          <div class="field" style="flex:1.4;"><label>পরিমাণ (৳)</label><input type="number" id="txAmount" placeholder="০"></div>
+          <div class="field" style="flex:1;"><label data-i18n="date">তারিখ</label><input type="date" id="txDate"></div>
+          <div class="field" style="flex:1.4;"><label data-i18n="amt">পরিমাণ (৳)</label><input type="number" id="txAmount" placeholder="০"></div>
         </div>
         <div class="field">
-          <label>ধরন</label>
+          <label data-i18n="kind">ধরন</label>
           <div class="seg" id="txKindSeg" style="margin-bottom:0;">
-            <button type="button" data-kind="plus" class="on expense">আমি দিলাম</button>
-            <button type="button" data-kind="minus" class="income">আমি নিলাম</button>
+            <button type="button" data-kind="plus" class="on expense" data-i18n="iGave">আমি দিলাম</button>
+            <button type="button" data-kind="minus" class="income" data-i18n="iGot">আমি নিলাম</button>
           </div>
-          <div class="hint">"আমি দিলাম" = তার পাওনা বাড়বে · "আমি নিলাম" = ফেরত পেলাম বা তার থেকে নিলাম</div>
+          <div class="hint" data-i18n="kindHint">"আমি দিলাম" = তার পাওনা বাড়বে · "আমি নিলাম" = ফেরত পেলাম বা তার থেকে নিলাম</div>
         </div>
         <div class="row2">
-          <div class="field"><label>নোট (ঐচ্ছিক)</label><input type="text" id="txNote" placeholder="কারণ"></div>
-          <div class="field"><label>ফেরতের তারিখ (ঐচ্ছিক)</label><input type="date" id="txDue"></div>
+          <div class="field"><label data-i18n="txNote">নোট (ঐচ্ছিক)</label><input type="text" id="txNote" data-i18n-ph="txNotePh" placeholder="কারণ"></div>
+          <div class="field"><label data-i18n="dueDate">ফেরতের তারিখ (ঐচ্ছিক)</label><input type="date" id="txDue"></div>
         </div>
-        <button class="btn" id="addTxBtn">লেনদেন সংরক্ষণ করুন</button>
-        <div class="hint">ফেরতের তারিখ দিলে রিমাইন্ডার তালিকায় দেখাবে এবং ক্যালেন্ডারে যোগ করার অপশন পাবেন।</div>
+        <button class="btn" id="addTxBtn" data-i18n="saveTx">লেনদেন সংরক্ষণ করুন</button>
+        <div class="hint" data-i18n="txHint">ফেরতের তারিখ দিলে রিমাইন্ডার তালিকায় দেখাবে এবং ক্যালেন্ডারে যোগ করার অপশন পাবেন।</div>
       </div>
     </section>
 
     <!-- DASHBOARD -->
     <section id="dashboard">
       <div class="card">
-        <h2><span class="dot"></span>মাস নির্বাচন করুন</h2>
+        <h2><span class="dot"></span><span data-i18n="pickM">মাস নির্বাচন করুন</span></h2>
         <div class="month-picker"><input type="month" id="dashMonth"></div>
         <div class="summary-grid">
-          <div class="box income"><div class="k">মোট আয়</div><div class="v" id="dIncome">৳ ০</div></div>
-          <div class="box expense"><div class="k">মোট খরচ</div><div class="v" id="dExpense">৳ ০</div></div>
-          <div class="box net"><div class="k">এ মাসের সঞ্চয়</div><div class="v" id="dNet">৳ ০</div></div>
+          <div class="box income"><div class="k" data-i18n="tInc">মোট আয়</div><div class="v" id="dIncome">৳ ০</div></div>
+          <div class="box expense"><div class="k" data-i18n="tExp">মোট খরচ</div><div class="v" id="dExpense">৳ ০</div></div>
+          <div class="box net"><div class="k" data-i18n="mSave">এ মাসের সঞ্চয়</div><div class="v" id="dNet">৳ ০</div></div>
         </div>
       </div>
 
       <div class="card">
-        <h2><span class="dot"></span>খাতভিত্তিক হিসাব (এই মাসে)</h2>
-        <div class="hint" style="margin:0 0 11px;">প্রতিটা খাতে চাপ দিলে সেই খাতে কোন কোন জিনিসে খরচ হয়েছে, তার পুরো তালিকা দেখা যাবে।</div>
+        <h2><span class="dot"></span><span data-i18n="catBreak">খাতভিত্তিক হিসাব (এই মাসে)</span></h2>
+        <div class="hint" style="margin:0 0 11px;" data-i18n="catBreakHint">প্রতিটা খাতে চাপ দিলে সেই খাতে কোন কোন জিনিসে খরচ হয়েছে, তার পুরো তালিকা দেখা যাবে।</div>
         <div id="categoryBreakdown"></div>
       </div>
 
       <div class="card">
-        <h2><span class="dot"></span>সর্বমোট (সর্বকালীন)</h2>
+        <h2><span class="dot"></span><span data-i18n="allTime">সর্বমোট (সর্বকালীন)</span></h2>
         <div class="summary-grid">
-          <div class="box net"><div class="k">মোট আয়</div><div class="v" id="tIncome">৳ ০</div></div>
-          <div class="box net"><div class="k">মোট খরচ</div><div class="v" id="tExpense">৳ ০</div></div>
+          <div class="box net"><div class="k" data-i18n="tInc">মোট আয়</div><div class="v" id="tIncome">৳ ০</div></div>
+          <div class="box net"><div class="k" data-i18n="tExp">মোট খরচ</div><div class="v" id="tExpense">৳ ০</div></div>
         </div>
       </div>
 
       <div class="card">
-        <h2><span class="dot"></span>খাতভিত্তিক বাজেট নির্ধারণ</h2>
+        <h2><span class="dot"></span><span data-i18n="budgetT">খাতভিত্তিক বাজেট নির্ধারণ</span></h2>
         <div class="row2">
-          <div class="field"><label>খাত</label><select id="budgetCat"></select></div>
-          <div class="field"><label>মাসিক সীমা (৳)</label><input type="number" id="budgetAmt" placeholder="০"></div>
+          <div class="field"><label data-i18n="cat">খাত</label><select id="budgetCat"></select></div>
+          <div class="field"><label data-i18n="bLimit">মাসিক সীমা (৳)</label><input type="number" id="budgetAmt" placeholder="০"></div>
         </div>
-        <button class="btn" id="saveBudgetBtn">বাজেট সংরক্ষণ করুন</button>
-        <h3>এই মাসের বাজেট অবস্থা</h3>
+        <button class="btn" id="saveBudgetBtn" data-i18n="saveB">বাজেট সংরক্ষণ করুন</button>
+        <h3 data-i18n="bThis">এই মাসের বাজেট অবস্থা</h3>
         <div id="budgetList"></div>
       </div>
     </section>
@@ -425,18 +436,18 @@
     <!-- ANALYSIS -->
     <section id="analysis">
       <div class="card">
-        <h2><span class="dot"></span>খাতওয়ারি খরচ (পাই চার্ট)</h2>
+        <h2><span class="dot"></span><span data-i18n="pieT">খাতওয়ারি খরচ (পাই চার্ট)</span></h2>
         <div class="month-picker"><input type="month" id="anaMonth"></div>
         <div id="pieWrap" style="text-align:center;"></div>
         <div class="pie-legend" id="pieLegend"></div>
       </div>
 
       <div class="card">
-        <h2><span class="dot"></span>মাস-ভিত্তিক তুলনা (গত ৬ মাস)</h2>
+        <h2><span class="dot"></span><span data-i18n="barT">মাস-ভিত্তিক তুলনা (গত ৬ মাস)</span></h2>
         <div class="bar-chart-wrap"><div id="barChart"></div></div>
         <div class="pie-legend">
-          <div class="li"><span class="sw" style="background:var(--gold);"></span>আয়</div>
-          <div class="li"><span class="sw" style="background:var(--maroon);"></span>খরচ</div>
+          <div class="li"><span class="sw" style="background:var(--gold);"></span><span data-i18n="lgInc">আয়</span></div>
+          <div class="li"><span class="sw" style="background:var(--maroon);"></span><span data-i18n="lgExp">খরচ</span></div>
         </div>
       </div>
     </section>
@@ -444,114 +455,151 @@
     <!-- REPORT -->
     <section id="report">
       <div class="card">
-        <h2 class="no-print"><span class="dot"></span>মাসিক রিপোর্ট ও এক্সপোর্ট</h2>
+        <h2 class="no-print"><span class="dot"></span><span data-i18n="repExp">মাসিক রিপোর্ট ও এক্সপোর্ট</span></h2>
         <div class="month-picker no-print">
           <input type="month" id="repMonth">
         </div>
         <div class="btn-row no-print" style="margin-bottom:6px;">
-          <button class="btn ghost small" id="pdfBtn">PDF সেভ করুন</button>
-          <button class="btn ghost small" id="csvMonthBtn">এই মাসের CSV</button>
-          <button class="btn ghost small" id="csvAllBtn">সব ডেটা CSV</button>
+          <button class="btn ghost small" id="pdfBtn" data-i18n="pdfBtn">PDF সেভ করুন</button>
+          <button class="btn ghost small" id="csvMonthBtn" data-i18n="csvM">এই মাসের CSV</button>
+          <button class="btn ghost small" id="csvAllBtn" data-i18n="csvA">সব ডেটা CSV</button>
         </div>
-        <div class="hint no-print" style="margin-bottom:14px;">ব্রাউজারে "PDF সেভ করুন" চাপলে ডায়ালগ খুলবে — "Save as PDF" বেছে নিলে PDF তৈরি হবে। iPhone-এর হোম-স্ক্রিন অ্যাপে PDF কাজ না করলে Safari-র সাধারণ ট্যাবে (লিংক সরাসরি) খুলে করুন।</div>
+        <div class="hint no-print" style="margin-bottom:14px;" data-i18n="pdfHint">ব্রাউজারে "PDF সেভ করুন" চাপলে ডায়ালগ খুলবে — "Save as PDF" বেছে নিলে PDF তৈরি হবে।</div>
 
         <div class="report-head">
-          <h2>মাসিক আয়-ব্যয়ের হিসাব</h2>
+          <h2 data-i18n="repHead">মাসিক আয়-ব্যয়ের হিসাব</h2>
           <div class="sub" id="repMonthLabel"></div>
           <div class="print-only" id="printMeta"></div>
         </div>
 
         <table class="report-table">
-          <thead><tr><th>বিবরণ</th><th>পরিমাণ (৳)</th></tr></thead>
+          <thead><tr><th data-i18n="desc">বিবরণ</th><th data-i18n="thAmt">পরিমাণ (৳)</th></tr></thead>
           <tbody>
-            <tr><td>মোট আয়</td><td id="rIncome">০</td></tr>
-            <tr><td>মোট খরচ</td><td id="rExpense">০</td></tr>
+            <tr><td data-i18n="rInc">মোট আয়</td><td id="rIncome">০</td></tr>
+            <tr><td data-i18n="rExp">মোট খরচ</td><td id="rExpense">০</td></tr>
           </tbody>
-          <tfoot><tr><td>এ মাসের সঞ্চয়/ঘাটতি</td><td id="rNet">০</td></tr></tfoot>
+          <tfoot><tr><td data-i18n="rNet">এ মাসের সঞ্চয়/ঘাটতি</td><td id="rNet">০</td></tr></tfoot>
         </table>
 
-        <h2 style="margin-top:20px;">খাতওয়ারি খরচ</h2>
-        <table class="report-table"><thead><tr><th>খাত</th><th>পরিমাণ (৳)</th></tr></thead><tbody id="repCatBody"></tbody></table>
+        <h2 style="margin-top:20px;" data-i18n="catWise">খাতওয়ারি খরচ</h2>
+        <table class="report-table"><thead><tr><th data-i18n="catH">খাত</th><th data-i18n="thAmt">পরিমাণ (৳)</th></tr></thead><tbody id="repCatBody"></tbody></table>
 
-        <h2 style="margin-top:20px;">বিস্তারিত লেনদেন</h2>
+        <h2 style="margin-top:20px;" data-i18n="detailT">বিস্তারিত লেনদেন</h2>
         <table class="report-table">
-          <thead><tr><th>তারিখ</th><th class="lt">বিবরণ</th><th class="lt">খাত</th><th>ধরন</th><th>পরিমাণ (৳)</th></tr></thead>
+          <thead><tr><th data-i18n="thDate">তারিখ</th><th class="lt" data-i18n="thDesc">বিবরণ</th><th class="lt" data-i18n="thCat">খাত</th><th data-i18n="thType">ধরন</th><th data-i18n="thAmt">পরিমাণ (৳)</th></tr></thead>
           <tbody id="repDetailBody"></tbody>
         </table>
       </div>
     </section>
 
-    <!-- SETTINGS (⋮ মেনু থেকে খোলে) -->
+    <!-- SETTINGS -->
     <section id="settings">
       <div class="card">
-        <h2><span class="dot"></span>ব্যাকআপ ও রিস্টোর</h2>
-        <div class="btn-row">
-          <button class="btn small" id="backupBtn">ব্যাকআপ ডাউনলোড</button>
-          <button class="btn wa small" id="shareBackupBtn">ব্যাকআপ শেয়ার</button>
-          <button class="btn ghost small" id="restoreBtn">ফাইল থেকে ফেরান</button>
+        <h2><span class="dot"></span><span data-i18n="langT">ভাষা (Language)</span></h2>
+        <div class="seg" id="langSeg">
+          <button type="button" data-lang="bn" class="on plain">বাংলা</button>
+          <button type="button" data-lang="en">English</button>
         </div>
-        <input type="file" id="restoreFile" accept=".json,application/json" style="display:none;">
-
-        <h3 style="margin-top:14px;">ব্যাকআপ কোড — সব ডিভাইসে কাজ করে</h3>
-        <div class="btn-row"><button class="btn small" id="copyBackupBtn">ব্যাকআপ কোড কপি করুন</button></div>
-        <div class="hint">কপি করা কোডটা WhatsApp-এ নিজের নম্বরে পাঠিয়ে রাখুন বা Google Keep-এ জমিয়ে রাখুন।</div>
-
-        <div class="field" style="margin-top:10px;">
-          <label>ব্যাকআপ কোড পেস্ট করে সব ফেরান</label>
-          <textarea id="pasteRestoreText" rows="4" placeholder="এখানে ব্যাকআপ কোড পেস্ট করুন..." style="font-size:11px;"></textarea>
-        </div>
-        <div class="btn-row"><button class="btn ghost small" id="pasteRestoreBtn">পেস্ট করা কোড থেকে ফেরান</button></div>
-
-        <div class="hint">ফোন বদলালে/নষ্ট হলে: নতুন ফোনে অ্যাপ খুলে → ওপরের ঘরে কোড পেস্ট → "পেস্ট করা কোড থেকে ফেরান"। মাসে অন্তত একবার ব্যাকআপ নিন।</div>
+        <div class="hint" data-i18n="langHint">অ্যাপের ভাষা বদলান — সব লেখা সাথে সাথে বদলে যাবে।</div>
       </div>
 
       <div class="card">
-        <h2><span class="dot"></span>খাত ব্যবস্থাপনা</h2>
+        <h2><span class="dot"></span><span data-i18n="aboutT">এই অ্যাপ সম্পর্কে</span></h2>
+        <div id="descText" style="font-size:12.5px;line-height:1.8;white-space:pre-line;color:var(--ink);"></div>
+        <div class="btn-row" style="margin-top:10px;"><button class="btn ghost small" id="descEditBtn" data-i18n="editB">সম্পাদনা করুন</button></div>
+        <div id="descEditWrap" style="display:none;margin-top:10px;">
+          <textarea id="descTextarea" rows="12" style="font-size:12px;line-height:1.6;"></textarea>
+          <div class="btn-row" style="margin-top:8px;">
+            <button class="btn small" id="descSaveBtn" data-i18n="saveB2">সংরক্ষণ করুন</button>
+            <button class="btn ghost small" id="descCancelBtn" data-i18n="cancelB">বাতিল</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2><span class="dot"></span><span data-i18n="contactT">যোগাযোগ (Contact Us)</span></h2>
+        <div class="contact-row">
+          <img id="contactPhoto" class="contact-photo" alt="contact">
+          <div class="contact-avatar" id="contactPh">M</div>
+          <div class="contact-info">
+            <div class="cn">MD.Mustafizur Rahama</div>
+            <div class="cl">✆ <a href="tel:+8801712857703">+8801712857703</a></div>
+            <div class="cl">📧 <a href="mailto:mustafizurlabu1991@gmail.com">mustafizurlabu1991@gmail.com</a></div>
+            <div class="cl">📍 Gazipur, Dhaka, Bangladesh.</div>
+          </div>
+        </div>
+        <div class="hint" data-i18n="contactHint">এই তথ্য স্থায়ীভাবে লেখা আছে — পরিবর্তন হয় না।</div>
+      </div>
+
+      <div class="card">
+        <h2><span class="dot"></span><span data-i18n="backupT">ব্যাকআপ ও রিস্টোর</span></h2>
+        <div class="btn-row">
+          <button class="btn small" id="backupBtn" data-i18n="bDl">ব্যাকআপ ডাউনলোড</button>
+          <button class="btn wa small" id="shareBackupBtn" data-i18n="bShare">ব্যাকআপ শেয়ার</button>
+          <button class="btn ghost small" id="restoreBtn" data-i18n="bRestore">ফাইল থেকে ফেরান</button>
+        </div>
+        <input type="file" id="restoreFile" accept=".json,application/json" style="display:none;">
+
+        <h3 style="margin-top:14px;" data-i18n="codeT">ব্যাকআপ কোড — সব ডিভাইসে কাজ করে</h3>
+        <div class="btn-row"><button class="btn small" id="copyBackupBtn" data-i18n="bCopy">ব্যাকআপ কোড কপি করুন</button></div>
+        <div class="hint" data-i18n="codeHint">কপি করা কোডটা WhatsApp-এ নিজের নম্বরে পাঠিয়ে রাখুন বা Google Keep-এ জমিয়ে রাখুন।</div>
+
+        <div class="field" style="margin-top:10px;">
+          <label data-i18n="pasteLbl">ব্যাকআপ কোড পেস্ট করে সব ফেরান</label>
+          <textarea id="pasteRestoreText" rows="4" data-i18n-ph="pastePh" placeholder="এখানে ব্যাকআপ কোড পেস্ট করুন..." style="font-size:11px;"></textarea>
+        </div>
+        <div class="btn-row"><button class="btn ghost small" id="pasteRestoreBtn" data-i18n="pasteBtn">পেস্ট করা কোড থেকে ফেরান</button></div>
+
+        <div class="hint" data-i18n="bHint">ফোন বদলালে/নষ্ট হলে: নতুন ফোনে অ্যাপ খুলে → ওপরের ঘরে কোড পেস্ট → "পেস্ট করা কোড থেকে ফেরান"। মাসে অন্তত একবার ব্যাকআপ নিন।</div>
+      </div>
+
+      <div class="card">
+        <h2><span class="dot"></span><span data-i18n="catM">খাত ব্যবস্থাপনা</span></h2>
         <div class="row2">
-          <div class="field"><label>ধরন</label>
+          <div class="field"><label data-i18n="cType">ধরন</label>
             <select id="newCatType">
-              <option value="expense">খরচের খাত</option>
-              <option value="income">আয়ের উৎস</option>
+              <option value="expense" data-i18n="cExp">খরচের খাত</option>
+              <option value="income" data-i18n="cInc">আয়ের উৎস</option>
             </select>
           </div>
-          <div class="field"><label>নাম</label><input type="text" id="newCatName" placeholder="যেমনঃ বোনাস"></div>
+          <div class="field"><label data-i18n="cName">নাম</label><input type="text" id="newCatName" data-i18n-ph="cNamePh" placeholder="যেমনঃ বোনাস"></div>
         </div>
-        <button class="btn" id="addCatBtn">খাত যোগ করুন</button>
-        <h3>যোগ করা খাতসমূহ</h3>
+        <button class="btn" id="addCatBtn" data-i18n="cAddBtn">খাত যোগ করুন</button>
+        <h3 data-i18n="cAdded">যোগ করা খাতসমূহ</h3>
         <div id="customCatList"></div>
       </div>
 
       <div class="card">
-        <h2><span class="dot"></span>PIN লক</h2>
+        <h2><span class="dot"></span><span data-i18n="pinT">PIN লক</span></h2>
         <div id="pinStatus" class="hint" style="margin:0 0 10px;"></div>
-        <div class="field"><label>বর্তমান PIN (লক চালু থাকলে)</label><input type="password" id="pinCur" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="••••"></div>
+        <div class="field"><label data-i18n="pinCur">বর্তমান PIN (লক চালু থাকলে)</label><input type="password" id="pinCur" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="••••"></div>
         <div class="row2">
-          <div class="field"><label>নতুন PIN (৪-৮ সংখ্যা)</label><input type="password" id="pinNew" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="••••"></div>
-          <div class="field"><label>নতুন PIN আবার</label><input type="password" id="pinNew2" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="••••"></div>
+          <div class="field"><label data-i18n="pinNew">নতুন PIN (৪-৮ সংখ্যা)</label><input type="password" id="pinNew" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="••••"></div>
+          <div class="field"><label data-i18n="pinNew2">নতুন PIN আবার</label><input type="password" id="pinNew2" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="••••"></div>
         </div>
         <div class="btn-row">
-          <button class="btn small" id="pinSetBtn">PIN সেট / পরিবর্তন</button>
-          <button class="btn ghost small" id="pinRemoveBtn">লক সরাও</button>
-          <button class="btn ghost small" id="lockNowBtn">এখনই লক করো</button>
+          <button class="btn small" id="pinSetBtn" data-i18n="pinSet">PIN সেট / পরিবর্তন</button>
+          <button class="btn ghost small" id="pinRemoveBtn" data-i18n="pinRm">লক সরাও</button>
+          <button class="btn ghost small" id="lockNowBtn" data-i18n="lockNow">এখনই লক করো</button>
         </div>
-        <div class="hint">⚠️ PIN ভুলে গেলে রিসেট করতে হয় — তাতে সব ডেটা মুছে যায়। তাই PIN ভালো করে মনে রাখুন এবং নিয়মিত ব্যাকআপ নিন।</div>
+        <div class="hint" data-i18n="pinHint">⚠️ PIN ভুলে গেলে রিসেট করতে হয় — তাতে সব ডেটা মুছে যায়। তাই PIN ভালো করে মনে রাখুন এবং নিয়মিত ব্যাকআপ নিন।</div>
       </div>
 
       <div class="card">
-        <h2><span class="dot"></span>প্রোফাইল</h2>
-        <div class="btn-row"><button class="btn ghost small" id="settingsProfileBtn">প্রোফাইল সম্পাদনা</button></div>
-        <div class="hint">নাম, মোবাইল ও ছবি এখান থেকে বদলানো যায় — হেডারে দেখা যাবে।</div>
+        <h2><span class="dot"></span><span data-i18n="profT">প্রোফাইল</span></h2>
+        <div class="btn-row"><button class="btn ghost small" id="settingsProfileBtn" data-i18n="profEdit">প্রোফাইল সম্পাদনা</button></div>
+        <div class="hint" data-i18n="profHint">নাম, মোবাইল, ঠিকানা ও ছবি এখান থেকে বদলানো যায় — হেডারে দেখা যাবে।</div>
       </div>
 
       <div class="card danger-wrap">
-        <button type="button" class="dots-btn" id="dangerDotsBtn" title="আরও">⋮</button>
+        <button type="button" class="dots-btn" id="dangerDotsBtn" title="...">⋮</button>
         <div id="dangerZone" style="display:none;margin-top:12px;">
-          <div class="btn-row"><button class="btn warn small" id="wipeBtn">সব ডেটা মুছে ফেলুন</button></div>
-          <div class="hint">এটি সব এন্ট্রি, ধার-দেনা, বাজেট, প্রোফাইল ও PIN মুছে দেবে। আগে ব্যাকআপ নিন!</div>
+          <div class="btn-row"><button class="btn warn small" id="wipeBtn" data-i18n="dangerB">সব ডেটা মুছে ফেলুন</button></div>
+          <div class="hint" data-i18n="dangerHint">এটি সব এন্ট্রি, ধার-দেনা, বাজেট, প্রোফাইল ও PIN মুছে দেবে। আগে ব্যাকআপ নিন!</div>
         </div>
       </div>
 
-      <div class="storage-note">আপনার সব তথ্য শুধু এই ডিভাইসেই (অ্যাপ/ব্রাউজারের স্টোরেজে) সেভ থাকে — কোথাও আপলোড হয় না। অ্যাপটি ইন্টারনেট ছাড়াও সম্পূর্ণ চলে।</div>
+      <div class="storage-note" data-i18n="offlineNote">✈️ এই অ্যাপ সম্পূর্ণ অফলাইনে চলে — ইন্টারনেট ছাড়াই সব কাজ করবে। আপনার সব তথ্য শুধু এই ডিভাইসেই সেভ থাকে — কোথাও আপলোড হয় না।</div>
     </section>
 
   </main>
@@ -560,30 +608,24 @@
 <!-- ===== প্রোফাইল মোডাল ===== -->
 <div class="modal-backdrop" id="profileBackdrop">
   <div class="modal-sheet">
-    <h2>তোমার পরিচিতি</h2>
-    <p class="sub">এই তথ্য শুধু তোমার এই ডিভাইসেই থাকবে, হিসাবের ওপরে দেখানোর জন্য।</p>
+    <h2 data-i18n="pmT">তোমার পরিচিতি</h2>
+    <p class="sub" data-i18n="pmSub">এই তথ্য শুধু তোমার এই ডিভাইসেই থাকবে, হিসাবের ওপরে দেখানোর জন্য।</p>
 
     <div class="photo-picker">
       <div class="preview placeholder" id="profilePhotoPreview">?</div>
-      <label class="btn ghost" for="profilePhotoInput">ছবি বাছাই করো</label>
+      <label class="btn ghost" for="profilePhotoInput" data-i18n="pickPh">ছবি বাছাই করো</label>
       <input type="file" id="profilePhotoInput" accept="image/*" style="display:none;">
     </div>
 
-    <div class="field">
-      <label>নাম</label>
-      <input type="text" id="profileNameInput" placeholder="যেমনঃ রাকিব হাসান">
-    </div>
-
-    <div class="field">
-      <label>মোবাইল নম্বর (ঐচ্ছিক)</label>
-      <input type="tel" id="profilePhoneInput" placeholder="যেমনঃ ০১৭xxxxxxxx">
-    </div>
+    <div class="field"><label data-i18n="pmName">নাম</label><input type="text" id="profileNameInput" data-i18n-ph="pmNamePh" placeholder="যেমনঃ রাকিব হাসান"></div>
+    <div class="field"><label data-i18n="pmPhone">মোবাইল নম্বর (ঐচ্ছিক)</label><input type="tel" id="profilePhoneInput" data-i18n-ph="pPhonePh" placeholder="যেমনঃ ০১৭xxxxxxxx"></div>
+    <div class="field"><label data-i18n="pmAddr">ঠিকানা (ঐচ্ছিক)</label><input type="text" id="profileAddressInput" data-i18n-ph="pAddrPh" placeholder="গ্রাম/বাসা"></div>
 
     <div class="btn-row">
-      <button class="btn" id="profileSaveBtn">সংরক্ষণ করো</button>
+      <button class="btn" id="profileSaveBtn" data-i18n="pmSave">সংরক্ষণ করো</button>
     </div>
     <div class="btn-row" style="margin-top:8px;">
-      <button class="btn ghost" id="profileSkipBtn">পরে করবো</button>
+      <button class="btn ghost" id="profileSkipBtn" data-i18n="pmSkip">পরে করবো</button>
     </div>
   </div>
 </div>
@@ -591,74 +633,280 @@
 <!-- ===== ব্যক্তি সম্পাদনা মোডাল ===== -->
 <div class="modal-backdrop" id="personBackdrop">
   <div class="modal-sheet">
-    <h2>ব্যক্তি সম্পাদনা</h2>
-    <p class="sub">নাম, মোবাইল, ঠিকানা ও ছবি হালনাগাদ করুন।</p>
+    <h2 data-i18n="pemT">ব্যক্তি সম্পাদনা</h2>
+    <p class="sub" data-i18n="pemSub">নাম, মোবাইল, ঠিকানা ও ছবি হালনাগাদ করুন।</p>
 
     <div class="photo-picker">
       <div class="preview placeholder" id="pmPhotoPreview">?</div>
-      <label class="btn ghost" for="pmPhotoInput">ছবি বাছাই করো</label>
+      <label class="btn ghost" for="pmPhotoInput" data-i18n="pickPh">ছবি বাছাই করো</label>
       <input type="file" id="pmPhotoInput" accept="image/*" style="display:none;">
     </div>
 
-    <div class="field"><label>নাম</label><input type="text" id="pmName"></div>
-    <div class="field"><label>মোবাইল নম্বর</label><input type="tel" id="pmPhone" placeholder="যেমনঃ ০১৭xxxxxxxx"></div>
-    <div class="field"><label>ঠিকানা (ঐচ্ছিক)</label><input type="text" id="pmAddress"></div>
+    <div class="field"><label data-i18n="pmName">নাম</label><input type="text" id="pmName"></div>
+    <div class="field"><label data-i18n="pPhone">মোবাইল নম্বর</label><input type="tel" id="pmPhone" data-i18n-ph="pPhonePh" placeholder="যেমনঃ ০১৭xxxxxxxx"></div>
+    <div class="field"><label data-i18n="pAddr">ঠিকানা (ঐচ্ছিক)</label><input type="text" id="pmAddress"></div>
 
     <div class="btn-row">
-      <button class="btn" id="pmSaveBtn">সংরক্ষণ করো</button>
+      <button class="btn" id="pmSaveBtn" data-i18n="saveB2">সংরক্ষণ করো</button>
     </div>
     <div class="btn-row" style="margin-top:8px;">
-      <button class="btn ghost" id="pmCancelBtn">বাতিল</button>
+      <button class="btn ghost" id="pmCancelBtn" data-i18n="cancelB">বাতিল</button>
     </div>
   </div>
 </div>
 
+<!-- ===== ব্যক্তির স্টেটমেন্ট (PDF প্রিন্ট) ===== -->
+<div id="personStatement">
+  <div class="report-head">
+    <h2 id="psTitle"></h2>
+    <div class="sub" id="psSub"></div>
+    <div class="print-only" id="psMeta"></div>
+  </div>
+  <table class="report-table">
+    <tbody id="psStats"></tbody>
+    <tfoot><tr><td id="psNetLbl"></td><td id="psNet"></td></tr></tfoot>
+  </table>
+  <h2 style="margin-top:20px;font-family:'Noto Serif Bengali',serif;font-size:16px;color:#0A3A2D;" id="psTxT"></h2>
+  <table class="report-table">
+    <thead><tr><th id="psThD"></th><th class="lt" id="psThN"></th><th id="psThT"></th><th id="psThA"></th></tr></thead>
+    <tbody id="psBody"></tbody>
+  </table>
+</div>
+
 <script>
-// ================= স্থির তালিকা =================
+// ================= ভাষা অভিধান (বাংলা / English) =================
+const STR={
+appT:['হিসাব খাতা','Hisab Khata'],addNm:['নাম যোগ করুন','Add your name'],onHand:['বর্তমানে হাতে জমা','Currently in hand'],
+mEntry:['এন্ট্রি','Entry'],mList:['তালিকা','List'],mDebt:['ধার-দেনা','Debt'],mDash:['ড্যাশবোর্ড','Dashboard'],mAna:['বিশ্লেষণ','Analysis'],mRep:['রিপোর্ট','Report'],mSet:['সেটিংস','Settings'],
+newE:['নতুন এন্ট্রি','New Entry'],editE:['এন্ট্রি সম্পাদনা','Edit Entry'],
+exp:['খরচ','Expense'],inc:['আয়','Income'],
+date:['তারিখ','Date'],amt:['পরিমাণ (৳)','Amount (৳)'],
+cat:['খাত','Category'],src:['আয়ের উৎস','Income source'],
+note:['নোট (ঐচ্ছিক)','Note (optional)'],notePh:['যেমনঃ কাঁচাবাজার, রিকশা ভাড়া...','e.g. Groceries, rickshaw fare...'],
+rcpt:['রিসিট ছবি (ঐচ্ছিক)','Receipt photo (optional)'],
+more:['আরও আইটেম (ঐচ্ছিক)','More items (optional)'],
+moreHint:['একই দোকানে অনেক কিছু কিনলে এখানে আলাদা আলাদা যোগ করো — প্রতিটার টাকা ওপরের "পরিমাণ"-এ নিজে থেকে যোগ হয়ে যাবে, আর নামগুলো নোটের শেষে কমা দিয়ে জুড়ে যাবে।','Buying many things at one shop? Add them here — each amount auto-adds to "Amount" above, and names join the note with commas.'],
+addIt:['+ আরেকটা আইটেম','+ Add another item'],itNamePh:['যেমনঃ রুটি','e.g. Bread'],
+save:['এন্ট্রি সংরক্ষণ করুন','Save Entry'],upd:['হালনাগাদ করুন','Update'],
+cancelE:['সম্পাদনা বাতিল করুন','Cancel Edit'],delE:['এন্ট্রি মুছে ফেলুন','Delete Entry'],
+recent:['সাম্প্রতিক এন্ট্রি','Recent Entries'],
+noE:['এখনো কোনো এন্ট্রি নেই। উপরের ফর্ম দিয়ে শুরু করুন।','No entries yet. Start with the form above.'],
+allE:['সব এন্ট্রি','All Entries'],
+allT:['সব ধরন','All types'],onlyE:['শুধু খরচ','Only expenses'],onlyI:['শুধু আয়','Only income'],
+listHint:['✎ চেপে এন্ট্রির ভেতরে ঢুকলে সম্পাদনা ও মুছে ফেলার অপশন পাবেন।','Tap ✎ to open an entry for editing or deleting.'],
+noneE:['কোনো এন্ট্রি পাওয়া যায়নি।','No entries found.'],
+debtSum:['সর্বমোট ধার-দেনার অবস্থা','Overall debt status'],
+iGet:['আমি পাব (মোট)','I will get (total)'],iGive:['আমি দেব (মোট)','I will pay (total)'],
+pList:['ব্যক্তিভিত্তিক তালিকা','People list'],
+addTx:['লেনদেন যোগ করুন','Add Transaction'],person:['ব্যক্তি','Person'],
+newP:['➕ নতুন ব্যক্তি যোগ করুন','➕ Add new person'],
+pickPh:['ছবি বাছাই করো','Choose photo'],
+pName:['নাম *','Name *'],pNamePh:['যেমনঃ রহিম ভাই','e.g. Rahim'],
+pPhone:['মোবাইল নম্বর','Mobile number'],pPhonePh:['যেমনঃ ০১৭xxxxxxxx','e.g. 017xxxxxxxx'],
+pAddr:['ঠিকানা (ঐচ্ছিক)','Address (optional)'],pAddrPh:['গ্রাম/বাসা','Village/House'],
+saveP:['ব্যক্তি সংরক্ষণ করুন','Save person'],
+kind:['ধরন','Type'],iGave:['আমি দিলাম','I gave'],iGot:['আমি নিলাম','I took'],
+kindHint:['"আমি দিলাম" = তার পাওনা বাড়বে · "আমি নিলাম" = ফেরত পেলাম বা তার থেকে নিলাম','"I gave" = their due increases · "I took" = got back or took from them'],
+txNote:['নোট (ঐচ্ছিক)','Note (optional)'],txNotePh:['কারণ','Reason'],
+dueDate:['ফেরতের তারিখ (ঐচ্ছিক)','Repayment date (optional)'],
+saveTx:['লেনদেন সংরক্ষণ করুন','Save Transaction'],
+txHint:['ফেরতের তারিখ দিলে রিমাইন্ডার তালিকায় দেখাবে এবং ক্যালেন্ডারে যোগ করার অপশন পাবেন।','With a repayment date it appears in reminders, with an add-to-calendar option.'],
+get:['পাব','Get'],give:['দেব','Pay'],zero:['শূন্য','Zero'],
+pdf:['PDF','PDF'],del:['মুছুন','Delete'],
+noPhHint:['মোবাইল নম্বর যোগ করলে এখানে WhatsApp/SMS বাটন আসবে।','Add a mobile number to get WhatsApp/SMS buttons here.'],
+stGave:['আমি দিয়েছি','I gave'],stGot:['আমি নিয়েছি','I took'],stBal:['ব্যালেন্স','Balance'],
+noTx:['কোনো লেনদেন নেই।','No transactions.'],
+noPeople1:['এখনো কোনো ব্যক্তি যোগ করা হয়নি।','No person added yet.'],
+noPeople2:['নাম, মোবাইল, ঠিকানা ও ছবিসহ ব্যক্তি যোগ করতে নিচের বাটনে চাপ দিন।','Tap the button below to add a person with name, mobile, address & photo.'],
+remT:['ফেরতের রিমাইন্ডার','Repayment Reminders'],
+calAdd:['ক্যালেন্ডারে যোগ','Add to calendar'],overdue:[' (মেয়াদোত্তীর্ণ)',' (overdue)'],
+remHint:['এই অ্যাপ সরাসরি পুশ নোটিফিকেশন পাঠাতে পারে না। তবে "ক্যালেন্ডারে যোগ" চাপলে একটি ফাইল ডাউনলোড হবে (ব্রাউজারে) — সেটি ফোনের Calendar অ্যাপে খুললে ঠিক সময়ে নোটিফিকেশন পাবেন।','The app cannot send push notifications. "Add to calendar" downloads a file — open it in your Calendar app for reminders.'],
+pickM:['মাস নির্বাচন করুন','Select month'],
+tInc:['মোট আয়','Total income'],tExp:['মোট খরচ','Total expense'],mSave:['এ মাসের সঞ্চয়','This month\'s savings'],
+catBreak:['খাতভিত্তিক হিসাব (এই মাসে)','Category breakdown (this month)'],
+catBreakHint:['প্রতিটা খাতে চাপ দিলে সেই খাতে কোন কোন জিনিসে খরচ হয়েছে, তার পুরো তালিকা দেখা যাবে।','Tap a category to see everything spent under it.'],
+allTime:['সর্বমোট (সর্বকালীন)','All-time totals'],
+budgetT:['খাতভিত্তিক বাজেট নির্ধারণ','Category budgets'],
+bLimit:['মাসিক সীমা (৳)','Monthly limit (৳)'],
+saveB:['বাজেট সংরক্ষণ করুন','Save budget'],bThis:['এই মাসের বাজেট অবস্থা','This month\'s budget'],
+noB:['এখনো কোনো বাজেট নির্ধারণ করা হয়নি।','No budget set yet.'],
+bOver:['সীমা অতিক্রম করেছেন!','Over the limit!'],bNear:['সীমার কাছাকাছি','Near the limit'],
+pieT:['খাতওয়ারি খরচ (পাই চার্ট)','Spending by category (Pie)'],
+barT:['মাস-ভিত্তিক তুলনা (গত ৬ মাস)','Monthly comparison (last 6 months)'],
+lgInc:['আয়','Income'],lgExp:['খরচ','Expense'],
+noExpM:['এই মাসে কোনো খরচ নেই।','No expenses this month.'],
+repExp:['মাসিক রিপোর্ট ও এক্সপোর্ট','Monthly Report & Export'],
+pdfBtn:['PDF সেভ করুন','Save PDF'],csvM:['এই মাসের CSV','This month CSV'],csvA:['সব ডেটা CSV','All data CSV'],
+pdfHint:['ব্রাউজারে "PDF সেভ করুন" চাপলে ডায়ালগ খুলবে — "Save as PDF" বেছে নিলে PDF তৈরি হবে। iPhone-এর হোম-স্ক্রিন অ্যাপে PDF কাজ না করলে Safari-র সাধারণ ট্যাবে খুলে করুন।','Tap "Save PDF" and choose "Save as PDF". On the iPhone home-screen app, open the link in a normal Safari tab instead.'],
+repHead:['মাসিক আয়-ব্যয়ের হিসাব','Monthly Income–Expense Statement'],
+desc:['বিবরণ','Description'],thAmt:['পরিমাণ (৳)','Amount (৳)'],
+rInc:['মোট আয়','Total income'],rExp:['মোট খরচ','Total expense'],
+rNet:['এ মাসের সঞ্চয়/ঘাটতি','This month saving/deficit'],
+catWise:['খাতওয়ারি খরচ','Spending by category'],catH:['খাত','Category'],
+detailT:['বিস্তারিত লেনদেন','Detailed Transactions'],
+thDate:['তারিখ','Date'],thDesc:['বিবরণ','Description'],thCat:['খাত','Category'],thType:['ধরন','Type'],
+typExp:['খরচ','Expense'],typInc:['আয়','Income'],
+noTxM:['এই মাসে কোনো লেনদেন নেই।','No transactions this month.'],
+metaName:['নাম:','Name:'],metaMob:['মোবাইল:','Mobile:'],metaMade:['তৈরি:','Generated:'],
+langT:['ভাষা (Language)','Language (ভাষা)'],
+langHint:['অ্যাপের ভাষা বদলান — সব লেখা সাথে সাথে বদলে যাবে।','Switch the app language — everything updates instantly.'],
+aboutT:['এই অ্যাপ সম্পর্কে','About this app'],
+editB:['সম্পাদনা করুন','Edit'],saveB2:['সংরক্ষণ করুন','Save'],cancelB:['বাতিল','Cancel'],
+backupT:['ব্যাকআপ ও রিস্টোর','Backup & Restore'],
+bDl:['ব্যাকআপ ডাউনলোড','Download backup'],bShare:['ব্যাকআপ শেয়ার','Share backup'],bRestore:['ফাইল থেকে ফেরান','Restore from file'],
+codeT:['ব্যাকআপ কোড — সব ডিভাইসে কাজ করে','Backup code — works on all devices'],
+bCopy:['ব্যাকআপ কোড কপি করুন','Copy backup code'],
+codeHint:['কপি করা কোডটা WhatsApp-এ নিজের নম্বরে পাঠিয়ে রাখুন বা Google Keep-এ জমিয়ে রাখুন।','Send the copied code to yourself on WhatsApp or save it in Google Keep.'],
+pasteLbl:['ব্যাকআপ কোড পেস্ট করে সব ফেরান','Paste backup code to restore everything'],
+pastePh:['এখানে ব্যাকআপ কোড পেস্ট করুন...','Paste the backup code here...'],
+pasteBtn:['পেস্ট করা কোড থেকে ফেরান','Restore from pasted code'],
+bHint:['ফোন বদলালে/নষ্ট হলে: নতুন ফোনে অ্যাপ খুলে → ওপরের ঘরে কোড পেস্ট → "পেস্ট করা কোড থেকে ফেরান"। মাসে অন্তত একবার ব্যাকআপ নিন।','Changing/losing your phone: open the app on the new phone → paste the code above → "Restore from pasted code". Back up at least monthly.'],
+catM:['খাত ব্যবস্থাপনা','Category Management'],
+cType:['ধরন','Type'],cExp:['খরচের খাত','Expense category'],cInc:['আয়ের উৎস','Income source'],
+cName:['নাম','Name'],cNamePh:['যেমনঃ বোনাস','e.g. Bonus'],
+cAddBtn:['খাত যোগ করুন','Add category'],cAdded:['যোগ করা খাতসমূহ','Added categories'],
+noC:['এখনো কোনো নিজের খাত যোগ করা হয়নি।','No custom categories yet.'],
+pinT:['PIN লক','PIN Lock'],
+pinOn:['🔒 PIN লক চালু আছে — অ্যাপ খুললেই PIN চাইবে।','🔒 PIN lock is on — PIN is asked every time.'],
+pinOff:['PIN লক এখন বন্ধ আছে।','PIN lock is off.'],
+pinCur:['বর্তমান PIN (লক চালু থাকলে)','Current PIN (if lock is on)'],
+pinNew:['নতুন PIN (৪-৮ সংখ্যা)','New PIN (4–8 digits)'],pinNew2:['নতুন PIN আবার','Repeat new PIN'],
+pinSet:['PIN সেট / পরিবর্তন','Set / change PIN'],pinRm:['লক সরাও','Remove lock'],lockNow:['এখনই লক করো','Lock now'],
+pinHint:['⚠️ PIN ভুলে গেলে রিসেট করতে হয় — তাতে সব ডেটা মুছে যায়। তাই PIN ভালো করে মনে রাখুন এবং নিয়মিত ব্যাকআপ নিন।','⚠️ Forgetting the PIN requires a reset — all data is wiped. Remember it well and back up regularly.'],
+profT:['প্রোফাইল','Profile'],profEdit:['প্রোফাইল সম্পাদনা','Edit profile'],
+profHint:['নাম, মোবাইল, ঠিকানা ও ছবি এখান থেকে বদলানো যায় — হেডারে দেখা যাবে।','Name, mobile, address & photo are edited here — shown in the header.'],
+contactT:['যোগাযোগ (Contact Us)','Contact Us'],
+contactHint:['এই তথ্য স্থায়ীভাবে লেখা আছে — পরিবর্তন হয় না।','This information is permanent — it does not change.'],
+dangerB:['সব ডেটা মুছে ফেলুন','Delete all data'],
+dangerHint:['এটি সব এন্ট্রি, ধার-দেনা, বাজেট, প্রোফাইল ও PIN মুছে দেবে। আগে ব্যাকআপ নিন!','This wipes all entries, debts, budgets, profile & PIN. Back up first!'],
+offlineNote:['✈️ এই অ্যাপ সম্পূর্ণ অফলাইনে চলে — ইন্টারনেট ছাড়াই এন্ট্রি, ধার-দেনা, বাজেট, চার্ট, রিপোর্ট সব কাজ করবে। আপনার সব তথ্য শুধু এই ডিভাইসেই (অ্যাপ/ব্রাউজারের স্টোরেজে) সেভ থাকে — কোথাও আপলোড হয় না।','✈️ This app works fully offline. All data stays only on this device — nothing is uploaded anywhere.'],
+pmT:['তোমার পরিচিতি','Your profile'],
+pmSub:['এই তথ্য শুধু তোমার এই ডিভাইসেই থাকবে, হিসাবের ওপরে দেখানোর জন্য।','This info stays only on this device, shown on the header.'],
+pmName:['নাম','Name'],pmNamePh:['যেমনঃ রাকিব হাসান','e.g. Rakib Hasan'],
+pmPhone:['মোবাইল নম্বর (ঐচ্ছিক)','Mobile number (optional)'],
+pmAddr:['ঠিকানা (ঐচ্ছিক)','Address (optional)'],
+pmSave:['সংরক্ষণ করো','Save'],pmSkip:['পরে করবো','Later'],
+pemT:['ব্যক্তি সম্পাদনা','Edit person'],pemSub:['নাম, মোবাইল, ঠিকানা ও ছবি হালনাগাদ করুন।','Update name, mobile, address & photo.'],
+lockT:['হিসাব খাতা লক করা আছে','App is locked'],lockSub:['চালিয়ে যেতে আপনার PIN দিন','Enter your PIN to continue'],
+unlock:['খুলুন','Unlock'],forgot:['PIN ভুলে গেছি','Forgot PIN'],
+aAmt:['সঠিক পরিমাণ (৳) লিখুন।','Please enter a valid amount (৳).'],
+aDelE:['আপনি কি নিশ্চিত এটা delete করবেন?','Sure you want to delete this?'],
+aPName:['ব্যক্তির নাম লিখুন।','Please enter the person\'s name.'],
+aPAdded:['ব্যক্তি যোগ হয়েছে — এখন উপরের তালিকায় দেখা যাবে।','Person added — see them in the list above.'],
+aNewPN:['নতুন ব্যক্তির নাম লিখে "ব্যক্তি সংরক্ষণ করুন" চাপুন, অথবা তালিকা থেকে বেছে নিন।','Type the new person\'s name and tap "Save person", or pick from the list.'],
+aNoP:['আগে একজন ব্যক্তি যোগ করুন।','Add a person first.'],
+aDelTx:['এই লেনদেনটা কি মুছে ফেলবেন?','Delete this transaction?'],
+aDelP:['এই ব্যক্তি ও তার সব লেনদেন মুছে যাবে। নিশ্চিত?','This person and all their transactions will be deleted. Sure?'],
+aNoPin:['কোনো PIN সেট করা নেই।','No PIN is set.'],
+aWrongPin:['বর্তমান PIN ভুল হয়েছে।','Current PIN is wrong.'],
+aPinSaved:['PIN সেট হয়েছে। এখন থেকে অ্যাপ খুললেই PIN চাইবে।','PIN set. The app will ask for it on every open.'],
+aPinRm:['PIN লক সরানো হয়েছে।','PIN lock removed.'],
+aPinLen:['নতুন PIN অবশ্যই ৪ থেকে ৮ সংখ্যার হতে হবে।','New PIN must be 4–8 digits.'],
+aPinMis:['দুইবার লেখা নতুন PIN মিলছে না।','The two PINs do not match.'],
+aSetFirst:['আগে PIN সেট করুন।','Set a PIN first.'],
+fRst1:['PIN রিসেট করলে সব ডেটা মুছে যাবে (এন্ট্রি, ধার-দেনা, সব)। নিশ্চিত?','Resetting the PIN wipes ALL data. Sure?'],
+fRst2:['এটাই শেষ সতর্কতা — সব ডেটা মুছে যাবে। চালিয়ে যাবেন?','Final warning — all data will be wiped. Continue?'],
+w1:['সত্যিই সব ডেটা মুছে ফেলবেন? এটি আর ফেরানো যাবে না।','Really delete ALL data? This cannot be undone.'],
+w2:['শেষ সুযোগ! আগে ব্যাকআপ নিয়েছেন? এখন সব মুছে যাবে।','Last chance! Did you back up? Everything will be wiped.'],
+aRstOk:['রিস্টোর সফল হয়েছে!','Restore successful!'],
+aRstBad:['এটি সঠিক ব্যাকআপ কোড নয়।','Not a valid backup code.'],
+aRstC:['বর্তমান সব ডেটা মুছে ব্যাকআপ থেকে ফেরানো হবে। নিশ্চিত?','Current data will be replaced by the backup. Sure?'],
+aFileBad:['ফাইলটি পড়া যায়নি — সঠিক ব্যাকআপ ফাইল দিন।','Could not read the file — use a valid backup file.'],
+aCpOk:['ব্যাকআপ কোড কপি হয়েছে!\n\nWhatsApp-এ নিজের নম্বরে পেস্ট করে পাঠিয়ে রাখুন বা Google Keep-এ জমান।','Backup code copied!\n\nSend it to yourself on WhatsApp or save it in Google Keep.'],
+aCpBad:['কপি ব্যর্থ — "ব্যাকআপ ডাউনলোড" ব্যবহার করুন।','Copy failed — use "Download backup".'],
+aPasteE:['আগে ব্যাকআপ কোড পেস্ট করুন।','Paste the backup code first.'],
+aCodeBad:['কোডটি পড়া যায়নি — সম্পূর্ণ ব্যাকআপ কোডটা আবার পেস্ট করুন।','Could not read the code — paste the full backup code again.'],
+aCatAdded:['খাত যোগ হয়েছে — এখন এন্ট্রি ফর্মের তালিকায় দেখা যাবে।','Category added — now in the entry form list.'],
+aCatName:['খাতের নাম লিখুন।','Enter the category name.'],
+aCatLen:['নামটা ৩০ অক্ষরের মধ্যে রাখুন।','Keep the name within 30 characters.'],
+aCatDup:['এই নামের খাত আগে থেকেই আছে।','This category already exists.'],
+aDelCat:['এই খাতটা কি মুছে ফেলবেন? (পুরনো এন্ট্রি অক্ষত থাকবে)','Delete this category? (existing entries stay intact)'],
+aDescE:['লেখা খালি রাখা যাবে না।','Text cannot be empty.'],
+aDescS:['সংরক্ষিত হয়েছে!','Saved!'],
+aPdfApk:['এই অ্যাপের (APK) ভেতরে PDF সেভ করা যায় না।\n\nPDF দরকার হলে: ফোনের Chrome ব্রাউজারে আপনার GitHub লিংকটা খুলে সেখানে চাপুন।','PDF saving is not available inside the APK.\n\nOpen your GitHub link in Chrome browser to save a PDF.'],
+aCopied:['টেবিল ডেটা কপি হয়েছে — Google Sheets/Excel-এ পেস্ট করলেই সারি-কলাম মিলে যাবে।','Table data copied — paste into Sheets/Excel and rows/columns will match.'],
+aCpFail:['কপি ব্যর্থ হয়েছে।','Copy failed.'],
+aShareCp:['ব্যাকআপ কোড কপি করে দিলাম — WhatsApp-এ নিজের নম্বরে পেস্ট করে রাখুন।','Backup code copied — paste it to yourself on WhatsApp.'],
+aShareBad:['কপি ব্যর্থ — "ব্যাকআপ ডাউনলোড" বাটনটা চেষ্টা করুন।','Copy failed — try "Download backup".'],
+waHi:['আসসালামু আলাইকুম','Assalamu alaikum'],
+waYouOwe:['আপনার কাছে','you owe me'],
+waIOwe:['আমি আপনার কাছে','I owe you'],
+waNone:['আমাদের মধ্যে কোনো ধার-দেনা বাকি নেই','we have no outstanding debt'],
+waTk:[' টাকা পাওনা আছে',' owed'],
+waFrom:['(হিসাব খাতা থেকে)।','(from Hisab Khata).'],
+psT:['ধার-দেনার হিসাব','Debt Ledger'],
+psTxT:['লেনদেনের বিবরণ','Transaction Details']
+};
+
 const CATEGORIES = ["বাজার/মুদি","বাসা ভাড়া","বিদ্যুৎ বিল","গ্যাস/পানি বিল","যাতায়াত","চিকিৎসা","শিক্ষা","বিনোদন","কেনাকাটা","মোবাইল/ইন্টারনেট","অন্যান্য"];
 const INCOME_SOURCES = ["বেতন","ব্যবসা","ফ্রিল্যান্স","উপহার","বিনিয়োগ","অন্যান্য"];
 const PIE_COLORS = ['#8C3A3A','#A9762E','#0E4B3A','#5B7C99','#7A5C8C','#B2554F','#3E7C59','#C98A3B','#5A4A6E','#6E8C4B','#7A6A56'];
 const BN_MONTHS = ['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
+const EN_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const BN_MONTHS_S = ['জানু','ফেব্রু','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্ট','অক্টো','নভে','ডিসে'];
+const EN_MONTHS_S = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const BN_DIGITS = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
 
-// APK (WebView) পরিবেশ শনাক্তকরণ
+const DEFAULT_DESC = `📖 Labu Khata (হিসাব খাতা)
+
+এই অ্যাপটি আমি নিজের দৈনন্দিন আয়-ব্যয় ও ধার-দেনার হিসাব গুছিয়ে রাখার জন্য তৈরি করেছি। অনেক কষ্টে, ধাপে ধাপে এটিকে আমার মনমতো সাজিয়েছি — তাই এটি আমার একান্ত নিজের ডিজিটাল খাতা।
+
+যা যা আছে এই খাতায়:
+• দৈনিক আয় ও খরচের এন্ট্রি (রিসিটের ছবিসহ)
+• খাতভিত্তিক হিসাব ও মাসিক বাজেট
+• ধার-দেনার হিসাব — নাম, ছবি, মোবাইল, ঠিকানাসহ; WhatsApp/SMS ও প্রতি ব্যক্তির PDF
+• পাই চার্ট ও ৬ মাসের তুলনা
+• মাসিক রিপোর্ট, PDF ও CSV এক্সপোর্ট
+• ব্যাকআপ কোড — ফোন বদলালেও হিসাব ফেরানো যায়
+• বাংলা/English — দুই ভাষায় চলে
+• PIN লক নিরাপত্তা
+
+এই অ্যাপ সম্পূর্ণ অফলাইনে চলে — ইন্টারনেট ছাড়াই। আমার সব তথ্য শুধু আমার নিজের ডিভাইসেই থাকে — কোথাও আপলোড হয় না। নিরাপদ, সহজ, নিজের হাতে গড়া খাতা।`;
+
 const IS_WEBVIEW = (function(){ try{ return /;\s*wv\)/i.test(navigator.userAgent); }catch(e){ return false; } })();
 
-// ================= অবস্থা (State) =================
+// ================= অবস্থা =================
+let LANG = 'bn';
 let expenses = [], incomes = [], debtPersons = [], debtTx = [], budgets = {};
 let customExpCats = [], customIncCats = [];
-let profile = { name:'', phone:'', photo:'' };
+let profile = { name:'', phone:'', photo:'', address:'' };
 let savedPin = null;
+let appDesc = '';
 let pendingProfilePhoto = null;
 let editingId = null, editingType = null;
 let txKind = 'plus';
 let pendingNpPhoto = null;
 let pmPersonId = null, pmPendingPhoto = null;
 
-// ================= সহায়ক ফাংশন =================
+function t(k){ const v = STR[k]; if(!v) return k; return LANG==='en' ? v[1] : v[0]; }
+
+// ================= সহায়ক =================
 function pad(n){ return String(n).padStart(2,'0'); }
 function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
 function monthStr(){ return todayStr().slice(0,7); }
 function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
 function escapeHtml(s){ const d=document.createElement('div'); d.textContent=(s==null?'':String(s)); return d.innerHTML.replace(/"/g,'&quot;'); }
-function toBn(s){ return String(s).replace(/[0-9]/g, d=>BN_DIGITS[+d]); }
-function fmt(n){ n = Math.round(n||0); if(n<0) return '- ৳ ' + toBn(Math.abs(n).toLocaleString('en-IN')); return '৳ ' + toBn(n.toLocaleString('en-IN')); }
+function toBn(s){ if(LANG==='en') return String(s); return String(s).replace(/[0-9]/g, d=>BN_DIGITS[+d]); }
+function fmt(n){ n = Math.round(n||0); if(n<0) return '- '+(LANG==='en'?'৳':'৳ ') + toBn(Math.abs(n).toLocaleString('en-IN')); return (LANG==='en'?'৳ ':'৳ ') + toBn(n.toLocaleString('en-IN')); }
 function bnDate(s){
   if(!s || !/^\d{4}-\d{2}-\d{2}$/.test(s)) return s||'';
   const p = s.split('-');
-  return toBn(parseInt(p[2],10)) + ' ' + (BN_MONTHS_S[parseInt(p[1],10)-1]||p[1]) + ' ' + toBn(p[0]);
+  const d = parseInt(p[2],10), mi = parseInt(p[1],10)-1;
+  if(LANG==='en') return d + ' ' + EN_MONTHS_S[mi] + ' ' + p[0];
+  return toBn(d) + ' ' + BN_MONTHS_S[mi] + ' ' + toBn(p[0]);
 }
 function monthLabel(m){
   if(!m) return '';
   const p = m.split('-');
-  return (BN_MONTHS[parseInt(p[1],10)-1]||p[1]) + ' ' + toBn(p[0]);
+  const mi = parseInt(p[1],10)-1;
+  if(LANG==='en') return EN_MONTHS[mi] + ' ' + p[0];
+  return BN_MONTHS[mi] + ' ' + toBn(p[0]);
 }
-async function copyText(t){
-  try{ await navigator.clipboard.writeText(t); return true; }catch(e){}
+async function copyText(t_){
+  try{ await navigator.clipboard.writeText(t_); return true; }catch(e){}
   try{
     const ta = document.createElement('textarea');
-    ta.value = t; ta.setAttribute('readonly','');
+    ta.value = t_; ta.setAttribute('readonly','');
     ta.style.cssText = 'position:fixed;left:-9999px;top:0;';
     document.body.appendChild(ta); ta.select();
     const ok = document.execCommand('copy');
@@ -712,25 +960,26 @@ async function sset(key, val){
 }
 
 async function loadAll(){
+  LANG          = (await sget('lang'))          || 'bn';
   expenses      = (await sget('expenses'))      || [];
   incomes       = (await sget('incomes'))       || [];
   debtPersons   = (await sget('debtPersons'))   || [];
   debtTx        = (await sget('debtTx'))        || [];
   budgets       = (await sget('budgets'))       || {};
-  profile       = (await sget('profile'))       || { name:'', phone:'', photo:'' };
+  profile       = (await sget('profile'))       || { name:'', phone:'', photo:'', address:'' };
+  if(!profile.address) profile.address='';
   savedPin      = (await sget('pin'))           || null;
   customExpCats = (await sget('customExpCats')) || [];
   customIncCats = (await sget('customIncCats')) || [];
+  appDesc       = (await sget('desc'))          || DEFAULT_DESC;
 }
 
 function allExpCats(){ return CATEGORIES.concat(customExpCats); }
 function allIncSources(){ return INCOME_SOURCES.concat(customIncCats); }
 
-// ================= PWA (ব্রাউজারের জন্য; APK-তে নিরীহ) =================
-// লোগো: GitHub-এ logo.png (বা logo.jpg) আপলোড থাকলে সেটাই আইকন হবে;
-// না থাকলে নিচের ফলব্যাক আইকন (নেভি রিং + ৳ + LABU Khata) ব্যবহার হবে।
+// ================= PWA =================
 const LOGO_CANDIDATES = ['logo.png','logo.jpg','logo.jpeg','logo.webp'];
-
+const CONTACT_CANDIDATES = ['contact.png','contact.jpg','contact.jpeg','contact.webp'];
 function makeAppIcon(size){
   try{
     const s = size;
@@ -754,7 +1003,6 @@ function makeAppIcon(size){
     return c.toDataURL('image/png');
   }catch(e){ return ''; }
 }
-
 function applyIcons(iconSrc){
   try{
     const manifest = {
@@ -775,7 +1023,6 @@ function applyIcons(iconSrc){
     const al = document.createElement('link'); al.rel = 'apple-touch-icon'; al.href = iconSrc; document.head.appendChild(al);
   }catch(e){}
 }
-
 function setupPWA(){
   try{
     if(IS_WEBVIEW) return;
@@ -795,6 +1042,45 @@ function setupPWA(){
     }
   }catch(e){}
 }
+function setupContactPhoto(){
+  try{
+    if(IS_WEBVIEW) return;
+    let i = 0;
+    const tryNext = ()=>{
+      if(i >= CONTACT_CANDIDATES.length) return;
+      const img = new Image();
+      img.onload = ()=>{
+        const el = document.getElementById('contactPhoto');
+        const ph = document.getElementById('contactPh');
+        if(el){ el.src = CONTACT_CANDIDATES[i]; el.style.display = 'block'; }
+        if(ph) ph.style.display = 'none';
+      };
+      img.onerror = ()=>{ i++; tryNext(); };
+      img.src = CONTACT_CANDIDATES[i];
+    };
+    tryNext();
+  }catch(e){}
+}
+
+// ================= ভাষা প্রয়োগ =================
+function applyLang(){
+  document.documentElement.lang = LANG==='en' ? 'en' : 'bn';
+  document.title = t('appT');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v = STR[el.dataset.i18n];
+    if(v) el.textContent = LANG==='en' ? v[1] : v[0];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const v = STR[el.dataset.i18nPh];
+    if(v) el.placeholder = LANG==='en' ? v[1] : v[0];
+  });
+  document.querySelectorAll('#langSeg button').forEach(x=>x.classList.toggle('on', x.dataset.lang===LANG));
+  document.getElementById('formTitle').textContent = editingId ? t('editE') : t('newE');
+  document.getElementById('saveBtn').textContent = editingId ? t('upd') : t('save');
+  document.getElementById('catLabel').textContent = mode==='expense' ? t('cat') : t('src');
+  renderPinStatus(); renderDesc(); updateCoverUI();
+  renderAll(); renderCustomCats();
+}
 
 // ================= সব দৃশ্য রিফ্রেশ =================
 function renderAll(){
@@ -804,33 +1090,30 @@ function renderAll(){
   renderPersons(); renderReminders(); renderDebtTotals();
 }
 
-// ================= ⋮ মেনু ও সেকশন পরিবর্তন =================
+// ================= ⋮ মেনু =================
 const menuPanel = document.getElementById('menuPanel');
 const menuBackdrop = document.getElementById('menuBackdrop');
-
 function openMenu(){ menuPanel.classList.add('open'); menuBackdrop.classList.add('open'); }
 function closeMenu(){ menuPanel.classList.remove('open'); menuBackdrop.classList.remove('open'); }
-
 document.getElementById('menuBtn').addEventListener('click', ()=>{
   if(menuPanel.classList.contains('open')) closeMenu(); else openMenu();
 });
 menuBackdrop.addEventListener('click', closeMenu);
 
-function goTab(t){
+function goTab(t_){
   document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
-  const sec = document.getElementById(t);
+  const sec = document.getElementById(t_);
   if(sec) sec.classList.add('active');
-  document.querySelectorAll('.menu-item').forEach(b=>b.classList.toggle('active', b.dataset.tab===t));
-  if(t==='dashboard'){ renderDashboard(); renderCategoryBreakdown(); renderBudgetList(); }
-  if(t==='analysis'){ renderPie(); renderBarChart(); }
-  if(t==='report'){ renderReport(); }
-  if(t==='list'){ renderFullList(); }
-  if(t==='debt'){ renderPersons(); renderReminders(); renderDebtTotals(); }
-  if(t==='settings'){ renderPinStatus(); renderCustomCats(); }
+  document.querySelectorAll('.menu-item').forEach(b=>b.classList.toggle('active', b.dataset.tab===t_));
+  if(t_==='dashboard'){ renderDashboard(); renderCategoryBreakdown(); renderBudgetList(); }
+  if(t_==='analysis'){ renderPie(); renderBarChart(); }
+  if(t_==='report'){ renderReport(); }
+  if(t_==='list'){ renderFullList(); }
+  if(t_==='debt'){ renderPersons(); renderReminders(); renderDebtTotals(); }
+  if(t_==='settings'){ renderPinStatus(); renderCustomCats(); renderDesc(); }
   closeMenu();
   window.scrollTo({top:0,behavior:'smooth'});
 }
-
 document.querySelectorAll('.menu-item').forEach(b=>{
   b.addEventListener('click', ()=> goTab(b.dataset.tab) );
 });
@@ -878,9 +1161,9 @@ document.getElementById('addExtraItemBtn').addEventListener('click', ()=>{
   row.className = 'extra-item-row';
   row.style.cssText = 'display:flex;gap:8px;align-items:center;margin-bottom:8px;';
   row.innerHTML = `
-    <input type="text" class="exItemName" placeholder="যেমনঃ রুটি" style="flex:2;padding:9px 10px;border:1px solid var(--line);border-radius:7px;font-family:'Noto Sans Bengali','Noto Sans',sans-serif;font-size:13px;">
+    <input type="text" class="exItemName" placeholder="${escapeHtml(t('itNamePh'))}" style="flex:2;padding:9px 10px;border:1px solid var(--line);border-radius:7px;font-family:'Noto Sans Bengali','Noto Sans',sans-serif;font-size:13px;">
     <input type="number" class="exItemAmt" inputmode="decimal" placeholder="৳" style="flex:1;min-width:70px;padding:9px 10px;border:1px solid var(--line);border-radius:7px;font-family:'Noto Sans Bengali','Noto Sans',sans-serif;font-size:13px;">
-    <button type="button" class="removeExtraItem" aria-label="মুছে ফেলো" style="background:none;border:none;color:var(--maroon);font-size:17px;cursor:pointer;padding:4px 2px;line-height:1;">✕</button>
+    <button type="button" class="removeExtraItem" aria-label="x" style="background:none;border:none;color:var(--maroon);font-size:17px;cursor:pointer;padding:4px 2px;line-height:1;">✕</button>
   `;
   row.querySelector('.removeExtraItem').addEventListener('click', ()=>{
     row.remove();
@@ -900,11 +1183,11 @@ function populateCategory(){
 }
 segExpense.addEventListener('click', ()=>{
   mode='expense'; segExpense.classList.add('on'); segIncome.classList.remove('on');
-  catLabel.textContent='খাত'; populateCategory(); renderQuickChips(); updateTotalAmount();
+  catLabel.textContent=t('cat'); populateCategory(); renderQuickChips(); updateTotalAmount();
 });
 segIncome.addEventListener('click', ()=>{
   mode='income'; segIncome.classList.add('on'); segExpense.classList.remove('on');
-  catLabel.textContent='আয়ের উৎস'; populateCategory(); renderQuickChips();
+  catLabel.textContent=t('src'); populateCategory(); renderQuickChips();
   fAmountEl.value = manualMain>0 ? String(manualMain) : '';
 });
 populateCategory();
@@ -940,8 +1223,8 @@ document.getElementById('cancelEditBtn').addEventListener('click', resetForm);
 
 function resetForm(){
   editingId=null; editingType=null;
-  document.getElementById('formTitle').textContent='নতুন এন্ট্রি';
-  document.getElementById('saveBtn').textContent='এন্ট্রি সংরক্ষণ করুন';
+  document.getElementById('formTitle').textContent=t('newE');
+  document.getElementById('saveBtn').textContent=t('save');
   document.getElementById('cancelEditRow').style.display='none';
   document.getElementById('deleteEntryRow').style.display='none';
   document.getElementById('fDate').value = todayStr();
@@ -963,7 +1246,7 @@ document.getElementById('saveBtn').addEventListener('click', async ()=>{
   const cat = catSelect.value;
   let note = document.getElementById('fNote').value.trim();
 
-  if(!amount || amount<=0){ alert('সঠিক পরিমাণ (৳) লিখুন।'); fAmountEl.focus(); return; }
+  if(!amount || amount<=0){ alert(t('aAmt')); fAmountEl.focus(); return; }
 
   const extraNames = [];
   document.querySelectorAll('#extraItemsList .extra-item-row').forEach(row=>{
@@ -1025,8 +1308,8 @@ function startEdit(id, type){
   document.getElementById('fNote').value = it.note||'';
   catSelect.value = type==='expense' ? it.category : it.source;
   if(type==='expense' && it.receipt){ document.getElementById('receiptPreview').innerHTML = `<img src="${it.receipt}" style="max-width:100px;border-radius:6px;border:1px solid var(--line);">`; }
-  document.getElementById('formTitle').textContent='এন্ট্রি সম্পাদনা';
-  document.getElementById('saveBtn').textContent='হালনাগাদ করুন';
+  document.getElementById('formTitle').textContent=t('editE');
+  document.getElementById('saveBtn').textContent=t('upd');
   document.getElementById('cancelEditRow').style.display='flex';
   document.getElementById('deleteEntryRow').style.display='flex';
   goTab('entry');
@@ -1035,7 +1318,7 @@ function startEdit(id, type){
 
 document.getElementById('deleteEntryBtn').addEventListener('click', async ()=>{
   if(!editingId) return;
-  if(!confirm('আপনি কি নিশ্চিত এটা delete করবেন?')) return;
+  if(!confirm(t('aDelE'))) return;
   const id = editingId, type = editingType;
   resetForm();
   await deleteEntry(id, type);
@@ -1057,7 +1340,7 @@ function entryRowHTML(item){
       </div>
       <span class="amt ${item.type}">${item.type==='expense'?'-':'+'} ${fmt(item.amount)}</span>
       <span class="icons">
-        <button data-id="${item.id}" data-type="${item.type}" class="eBtn" title="সম্পাদনা">✎</button>
+        <button data-id="${item.id}" data-type="${item.type}" class="eBtn" title="✎">✎</button>
       </span>
     </div>`;
 }
@@ -1072,7 +1355,7 @@ function renderRecent(){
   ].sort((a,b)=>(b.date+b.id).localeCompare(a.date+a.id)).slice(0,8);
 
   const wrap = document.getElementById('recentList');
-  if(all.length===0){ wrap.innerHTML='<div class="empty">এখনো কোনো এন্ট্রি নেই। উপরের ফর্ম দিয়ে শুরু করুন।</div>'; return; }
+  if(all.length===0){ wrap.innerHTML='<div class="empty">'+escapeHtml(t('noE'))+'</div>'; return; }
   wrap.innerHTML = all.map(entryRowHTML).join('');
   bindEntryButtons(wrap);
 }
@@ -1103,14 +1386,14 @@ function renderFullList(){
   all.sort((a,b)=>(b.date+b.id).localeCompare(a.date+a.id));
 
   const wrap = document.getElementById('fullList');
-  if(all.length===0){ wrap.innerHTML='<div class="empty">কোনো এন্ট্রি পাওয়া যায়নি।</div>'; return; }
+  if(all.length===0){ wrap.innerHTML='<div class="empty">'+escapeHtml(t('noneE'))+'</div>'; return; }
   wrap.innerHTML = all.map(entryRowHTML).join('');
   bindEntryButtons(wrap);
 }
 
 // ================= ধার-দেনা =================
 function personBalance(pid){
-  return debtTx.filter(t=>t.personId===pid).reduce((s,t)=> s + (t.kind==='plus'? t.amount : -t.amount), 0);
+  return debtTx.filter(t_=>t_.personId===pid).reduce((s,t_)=> s + (t_.kind==='plus'? t_.amount : -t_.amount), 0);
 }
 function renderDebtTotals(){
   let owedToMe=0, iOwe=0;
@@ -1126,12 +1409,28 @@ function refreshPersonSelect(){
   const sel = document.getElementById('txPerson');
   const cur = sel.value;
   sel.innerHTML = debtPersons.map(p=>`<option value="${p.id}">${escapeHtml(p.name)}</option>`).join('')
-    + '<option value="__new__">➕ নতুন ব্যক্তি যোগ করুন</option>';
+    + `<option value="__new__">${escapeHtml(t('newP'))}</option>`;
   if(cur && debtPersons.some(p=>p.id===cur)) sel.value = cur;
 }
 document.getElementById('txPerson').addEventListener('change', ()=>{
   const isNew = document.getElementById('txPerson').value==='__new__';
   document.getElementById('newPersonFields').style.display = isNew ? 'block' : 'none';
+});
+
+const newPersonFields = document.getElementById('newPersonFields');
+function openNewPersonForm(){
+  newPersonFields.style.display='block';
+  document.getElementById('txPerson').value='__new__';
+  setTimeout(()=>{ try{ document.getElementById('npName').focus(); }catch(e){} }, 100);
+  try{ newPersonFields.scrollIntoView({behavior:'smooth', block:'center'}); }catch(e){}
+}
+function closeNewPersonForm(){
+  newPersonFields.style.display='none';
+  clearNpFields();
+}
+document.getElementById('toggleNewPersonBtn').addEventListener('click', ()=>{
+  if(newPersonFields.style.display==='none'){ openNewPersonForm(); }
+  else{ closeNewPersonForm(); }
 });
 
 function clearNpFields(){
@@ -1152,7 +1451,7 @@ document.getElementById('npPhotoInput').addEventListener('change', (e)=>{
 });
 document.getElementById('saveNewPersonBtn').addEventListener('click', async ()=>{
   const name = document.getElementById('npName').value.trim();
-  if(!name){ alert('ব্যক্তির নাম লিখুন।'); return; }
+  if(!name){ alert(t('aPName')); return; }
   const p = {
     id: uid(), name,
     phone: document.getElementById('npPhone').value.trim(),
@@ -1161,11 +1460,11 @@ document.getElementById('saveNewPersonBtn').addEventListener('click', async ()=>
   };
   debtPersons.push(p);
   await sset('debtPersons', debtPersons);
-  clearNpFields();
+  closeNewPersonForm();
   refreshPersonSelect();
   document.getElementById('txPerson').value = p.id;
-  document.getElementById('newPersonFields').style.display='none';
-  renderPersons();
+  renderPersons(); renderDebtTotals();
+  alert(t('aPAdded'));
 });
 
 document.getElementById('txDate').value = todayStr();
@@ -1181,7 +1480,7 @@ document.getElementById('addTxBtn').addEventListener('click', async ()=>{
   let personId = document.getElementById('txPerson').value;
   if(personId==='__new__'){
     const name = document.getElementById('npName').value.trim();
-    if(!name){ alert('নতুন ব্যক্তির নাম লিখে "ব্যক্তি সংরক্ষণ করুন" চাপুন, অথবা তালিকা থেকে বেছে নিন।'); return; }
+    if(!name){ alert(t('aNewPN')); return; }
     const p = {
       id: uid(), name,
       phone: document.getElementById('npPhone').value.trim(),
@@ -1190,19 +1489,18 @@ document.getElementById('addTxBtn').addEventListener('click', async ()=>{
     };
     debtPersons.push(p);
     await sset('debtPersons', debtPersons);
-    clearNpFields();
+    closeNewPersonForm();
     refreshPersonSelect();
     document.getElementById('txPerson').value = p.id;
-    document.getElementById('newPersonFields').style.display='none';
     personId = p.id;
     renderPersons();
   }
-  if(!personId){ alert('আগে একজন ব্যক্তি যোগ করুন।'); return; }
+  if(!personId){ alert(t('aNoP')); return; }
   const date = document.getElementById('txDate').value || todayStr();
   const amount = parseFloat(document.getElementById('txAmount').value);
   const note = document.getElementById('txNote').value.trim();
   const due = document.getElementById('txDue').value;
-  if(!amount || amount<=0){ alert('সঠিক পরিমাণ (৳) লিখুন।'); return; }
+  if(!amount || amount<=0){ alert(t('aAmt')); return; }
   debtTx.push({id:uid(), personId, date, amount, kind:txKind, note, due});
   await sset('debtTx', debtTx);
   document.getElementById('txAmount').value='';
@@ -1212,9 +1510,9 @@ document.getElementById('addTxBtn').addEventListener('click', async ()=>{
 });
 
 function personMessage(p, bal){
-  if(bal>0) return 'আসসালামু আলাইকুম ' + p.name + ', আপনার কাছে ' + fmt(bal) + ' টাকা পাওনা আছে (হিসাব খাতা থেকে)।';
-  if(bal<0) return 'আসসালামু আলাইকুম ' + p.name + ', আমি আপনার কাছে ' + fmt(-bal) + ' টাকা পাওনা আছে (হিসাব খাতা থেকে)।';
-  return 'আসসালামু আলাইকুম ' + p.name + ', আমাদের মধ্যে কোনো ধার-দেনা বাকি নেই (হিসাব খাতা)।';
+  if(bal>0) return t('waHi')+' '+p.name+', '+t('waYouOwe')+' '+fmt(bal)+t('waTk')+' '+t('waFrom');
+  if(bal<0) return t('waHi')+' '+p.name+', '+t('waIOwe')+' '+fmt(-bal)+t('waTk')+' '+t('waFrom');
+  return t('waHi')+' '+p.name+', '+t('waNone')+' '+t('waFrom');
 }
 function waLink(phone, msg){
   let n = (phone||'').replace(/\D/g,'');
@@ -1229,12 +1527,17 @@ function smsLink(phone, msg){
 function renderPersons(){
   refreshPersonSelect();
   const wrap = document.getElementById('personList');
-  if(debtPersons.length===0){ wrap.innerHTML='<div class="empty">এখনো কোনো ব্যক্তি যোগ করা হয়নি। নিচের "লেনদেন যোগ করুন" অংশ থেকে নতুন ব্যক্তি যোগ করুন।</div>'; return; }
+  if(debtPersons.length===0){
+    wrap.innerHTML = '<div class="empty">'+escapeHtml(t('noPeople1'))+'<br>'+escapeHtml(t('noPeople2'))+'<br><button class="btn small" id="emptyAddPersonBtn" style="margin-top:12px;">'+escapeHtml(t('newP'))+'</button></div>';
+    const eb = document.getElementById('emptyAddPersonBtn');
+    if(eb) eb.addEventListener('click', openNewPersonForm);
+    return;
+  }
   wrap.innerHTML = debtPersons.map(p=>{
     const bal = personBalance(p.id);
-    const txs = debtTx.filter(t=>t.personId===p.id).sort((a,b)=>b.date.localeCompare(a.date));
-    const totalGiven = debtTx.filter(t=>t.personId===p.id && t.kind==='plus').reduce((s,t)=>s+t.amount,0);
-    const totalTaken = debtTx.filter(t=>t.personId===p.id && t.kind==='minus').reduce((s,t)=>s+t.amount,0);
+    const txs = debtTx.filter(x=>x.personId===p.id).sort((a,b)=>b.date.localeCompare(a.date));
+    const totalGiven = debtTx.filter(x=>x.personId===p.id && x.kind==='plus').reduce((s,x)=>s+x.amount,0);
+    const totalTaken = debtTx.filter(x=>x.personId===p.id && x.kind==='minus').reduce((s,x)=>s+x.amount,0);
     const avatar = p.photo
       ? `<img class="p-avatar" src="${p.photo}">`
       : `<div class="p-avatar placeholder">${escapeHtml((p.name||'?').trim().charAt(0)||'?')}</div>`;
@@ -1243,6 +1546,7 @@ function renderPersons(){
     const contactBtns = p.phone ? `
       <a class="btn small wa" target="_blank" rel="noopener" href="${waLink(p.phone,msg)}">WhatsApp</a>
       <a class="btn small sms" href="${smsLink(p.phone,msg)}">SMS</a>` : '';
+    const stLbl = bal>0 ? t('get') : (bal<0 ? t('give') : t('zero'));
     return `
     <div class="person-card">
       <div class="person-head" data-pid="${p.id}">
@@ -1251,29 +1555,29 @@ function renderPersons(){
           <div class="name">${escapeHtml(p.name)}</div>
           ${metaBits? `<div class="pmeta">${escapeHtml(metaBits)}</div>`:''}
         </div>
-        <span class="bal ${bal>=0?'pos':'neg'}">${bal>0?'পাব':(bal<0?'দেব':'শূন্য')}<br>${fmt(Math.abs(bal))}</span>
+        <span class="bal ${bal>=0?'pos':'neg'}">${escapeHtml(stLbl)}<br>${fmt(Math.abs(bal))}</span>
       </div>
       <div class="person-body" id="pbody-${p.id}">
         <div class="p-actions">
           ${contactBtns}
-          <button class="btn small ghost editPersonBtn" data-id="${p.id}">সম্পাদনা</button>
-          <button class="btn small warn delPersonBtn" data-id="${p.id}">মুছুন</button>
+          <button class="btn small ghost pdfPersonBtn" data-id="${p.id}">PDF</button>
+          <button class="btn small warn delPersonBtn" data-id="${p.id}">${escapeHtml(t('del'))}</button>
         </div>
-        ${!p.phone? '<div class="hint" style="margin:0 0 6px;">মোবাইল নম্বর যোগ করলে এখানে WhatsApp/SMS বাটন আসবে (সম্পাদনা চাপুন)।</div>':''}
+        ${!p.phone? '<div class="hint" style="margin:0 0 6px;">'+escapeHtml(t('noPhHint'))+'</div>':''}
         <div class="p-stats">
-          <div class="ps"><div class="k">আমি দিয়েছি</div><div class="v" style="color:var(--gold)">${fmt(totalGiven)}</div></div>
-          <div class="ps"><div class="k">আমি নিয়েছি</div><div class="v" style="color:var(--green-deep)">${fmt(totalTaken)}</div></div>
-          <div class="ps"><div class="k">ব্যালেন্স</div><div class="v" style="color:${bal>=0?'var(--gold)':'var(--maroon)'}">${fmt(Math.abs(bal))}</div></div>
+          <div class="ps"><div class="k">${escapeHtml(t('stGave'))}</div><div class="v" style="color:var(--gold)">${fmt(totalGiven)}</div></div>
+          <div class="ps"><div class="k">${escapeHtml(t('stGot'))}</div><div class="v" style="color:var(--green-deep)">${fmt(totalTaken)}</div></div>
+          <div class="ps"><div class="k">${escapeHtml(t('stBal'))}</div><div class="v" style="color:${bal>=0?'var(--gold)':'var(--maroon)'}">${fmt(Math.abs(bal))}</div></div>
         </div>
-        ${txs.length===0? '<div class="empty">কোনো লেনদেন নেই।</div>' : txs.map(t=>`
+        ${txs.length===0? '<div class="empty">'+escapeHtml(t('noTx'))+'</div>' : txs.map(x=>`
           <div class="tx-row">
             <div style="flex:1;min-width:0;">
-              <div>${t.kind==='plus'?'আমি দিলাম':'আমি নিলাম'}${t.note? ' — '+escapeHtml(t.note):''}</div>
-              <div class="meta">${bnDate(t.date)}${t.due? ' · ফেরত: '+bnDate(t.due) : ''}</div>
+              <div>${x.kind==='plus'? escapeHtml(t('iGave')) : escapeHtml(t('iGot'))}${x.note? ' — '+escapeHtml(x.note):''}</div>
+              <div class="meta">${bnDate(x.date)}${x.due? ' · '+escapeHtml(t('calAdd'))+': '+bnDate(x.due) : ''}</div>
             </div>
             <div style="display:flex;align-items:center;gap:8px;flex:0 0 auto;">
-              <span class="${t.kind==='plus'?'bal pos':'bal neg'}">${t.kind==='plus'?'+':'-'}${fmt(t.amount)}</span>
-              <button class="delTxBtn" data-id="${t.id}" style="background:none;border:none;color:#8b8163;font-size:14px;cursor:pointer;">✕</button>
+              <span class="${x.kind==='plus'?'bal pos':'bal neg'}">${x.kind==='plus'?'+':'-'}${fmt(x.amount)}</span>
+              <button class="delTxBtn" data-id="${x.id}" style="background:none;border:none;color:#8b8163;font-size:14px;cursor:pointer;">✕</button>
             </div>
           </div>
         `).join('')}
@@ -1289,27 +1593,27 @@ function renderPersons(){
   wrap.querySelectorAll('.delTxBtn').forEach(b=>{
     b.addEventListener('click', async (e)=>{
       e.stopPropagation();
-      if(!confirm('এই লেনদেনটা কি মুছে ফেলবেন?')) return;
-      debtTx = debtTx.filter(t=>t.id!==b.dataset.id);
+      if(!confirm(t('aDelTx'))) return;
+      debtTx = debtTx.filter(x=>x.id!==b.dataset.id);
       await sset('debtTx', debtTx);
       renderAll();
     });
   });
-  wrap.querySelectorAll('.editPersonBtn').forEach(b=>{
-    b.addEventListener('click', ()=> openPersonModal(b.dataset.id) );
+  wrap.querySelectorAll('.pdfPersonBtn').forEach(b=>{
+    b.addEventListener('click', ()=> printPersonStatement(b.dataset.id) );
   });
   wrap.querySelectorAll('.delPersonBtn').forEach(b=>{
     b.addEventListener('click', async ()=>{
-      if(!confirm('এই ব্যক্তি ও তার সব লেনদেন মুছে যাবে। নিশ্চিত?')) return;
+      if(!confirm(t('aDelP'))) return;
       debtPersons = debtPersons.filter(p=>p.id!==b.dataset.id);
-      debtTx = debtTx.filter(t=>t.personId!==b.dataset.id);
+      debtTx = debtTx.filter(x=>x.personId!==b.dataset.id);
       await sset('debtPersons', debtPersons); await sset('debtTx', debtTx);
       renderAll();
     });
   });
 }
 
-// ---------- ব্যক্তি সম্পাদনা মোডাল ----------
+// ---------- ব্যক্তি সম্পাদনা মোডাল (ভবিষ্যতের জন্য রাখা) ----------
 const personBackdrop = document.getElementById('personBackdrop');
 function openPersonModal(pid){
   const p = debtPersons.find(x=>x.id===pid);
@@ -1336,7 +1640,7 @@ document.getElementById('pmSaveBtn').addEventListener('click', async ()=>{
   const p = debtPersons.find(x=>x.id===pmPersonId);
   if(!p){ closePersonModal(); return; }
   const name = document.getElementById('pmName').value.trim();
-  if(!name){ alert('নাম লিখুন।'); return; }
+  if(!name){ alert(t('aPName')); return; }
   p.name = name;
   p.phone = document.getElementById('pmPhone').value.trim();
   p.address = document.getElementById('pmAddress').value.trim();
@@ -1348,6 +1652,47 @@ document.getElementById('pmSaveBtn').addEventListener('click', async ()=>{
 });
 document.getElementById('pmCancelBtn').addEventListener('click', closePersonModal);
 personBackdrop.addEventListener('click', e=>{ if(e.target===personBackdrop) closePersonModal(); });
+
+// ---------- ব্যক্তির PDF স্টেটমেন্ট ----------
+function printPersonStatement(pid){
+  const p = debtPersons.find(x=>x.id===pid);
+  if(!p) return;
+  if(IS_WEBVIEW){ alert(t('aPdfApk')); return; }
+  const bal = personBalance(pid);
+  const txs = debtTx.filter(x=>x.personId===pid).sort((a,b)=>a.date.localeCompare(b.date));
+  const g = debtTx.filter(x=>x.personId===pid && x.kind==='plus').reduce((s,x)=>s+x.amount,0);
+  const k = debtTx.filter(x=>x.personId===pid && x.kind==='minus').reduce((s,x)=>s+x.amount,0);
+
+  document.getElementById('psTitle').textContent = t('psT') + ' — ' + p.name;
+  document.getElementById('psSub').textContent = [p.phone, p.address].filter(Boolean).join(' · ');
+  document.getElementById('psMeta').textContent =
+    t('metaName')+' '+(profile.name||'—')
+    + (profile.phone? ' · '+t('metaMob')+' '+profile.phone : '')
+    + ' · '+t('metaMade')+' '+bnDate(todayStr());
+
+  document.getElementById('psStats').innerHTML =
+    '<tr><td>'+escapeHtml(t('stGave'))+'</td><td>'+fmt(g)+'</td></tr>'+
+    '<tr><td>'+escapeHtml(t('stGot'))+'</td><td>'+fmt(k)+'</td></tr>';
+  document.getElementById('psNetLbl').textContent = t('stBal');
+  document.getElementById('psNet').textContent =
+    (bal>=0 ? t('get')+' '+fmt(Math.abs(bal)) : t('give')+' '+fmt(Math.abs(bal)));
+
+  document.getElementById('psTxT').textContent = t('psTxT');
+  document.getElementById('psThD').textContent = t('thDate');
+  document.getElementById('psThN').textContent = t('thDesc');
+  document.getElementById('psThT').textContent = t('thType');
+  document.getElementById('psThA').textContent = t('thAmt');
+
+  document.getElementById('psBody').innerHTML = txs.length===0
+    ? '<tr><td colspan="4" style="text-align:center;color:var(--ink-soft);">'+escapeHtml(t('noTx'))+'</td></tr>'
+    : txs.map(x=>'<tr><td>'+bnDate(x.date)+'</td><td class="lt">'+escapeHtml(x.note||'—')+'</td><td>'+(x.kind==='plus'? escapeHtml(t('iGave')) : escapeHtml(t('iGot')))+'</td><td style="color:'+(x.kind==='plus'?'var(--gold)':'var(--maroon)')+'">'+(x.kind==='plus'?'+':'-')+' '+fmt(x.amount)+'</td></tr>').join('');
+
+  document.body.classList.add('print-person');
+  const restore = ()=>{ document.body.classList.remove('print-person'); window.removeEventListener('afterprint', restore); };
+  window.addEventListener('afterprint', restore);
+  window.print();
+  setTimeout(restore, 2000);
+}
 
 function icsDownload(title, dateStr, notes){
   const dt = dateStr.replace(/-/g,'');
@@ -1376,27 +1721,27 @@ END:VCALENDAR`;
 
 function renderReminders(){
   const today = todayStr();
-  const upcoming = debtTx.filter(t=>t.due).sort((a,b)=>a.due.localeCompare(b.due));
+  const upcoming = debtTx.filter(x=>x.due).sort((a,b)=>a.due.localeCompare(b.due));
   const area = document.getElementById('reminderArea');
   if(upcoming.length===0){ area.innerHTML=''; return; }
   area.innerHTML = `<div class="reminder-banner no-print">
-    <strong>ফেরতের রিমাইন্ডার</strong>
-    ${upcoming.map(t=>{
-      const p = debtPersons.find(x=>x.id===t.personId);
-      const overdue = t.due < today;
+    <strong>${escapeHtml(t('remT'))}</strong>
+    ${upcoming.map(x=>{
+      const p = debtPersons.find(y=>y.id===x.personId);
+      const od = x.due < today;
       return `<div class="r-item">
-        <span>${p?escapeHtml(p.name):'?'} — ${fmt(t.amount)} — ${bnDate(t.due)}${overdue?' (মেয়াদোত্তীর্ণ)':''}</span>
-        <button class="btn small ics-btn" data-id="${t.id}">ক্যালেন্ডারে যোগ</button>
+        <span>${p?escapeHtml(p.name):'?'} — ${fmt(x.amount)} — ${bnDate(x.due)}${od?escapeHtml(t('overdue')):''}</span>
+        <button class="btn small ics-btn" data-id="${x.id}">${escapeHtml(t('calAdd'))}</button>
       </div>`;
     }).join('')}
-    <div class="hint">এই অ্যাপ সরাসরি পুশ নোটিফিকেশন পাঠাতে পারে না। তবে "ক্যালেন্ডারে যোগ" চাপলে একটি ফাইল ডাউনলোড হবে (ব্রাউজারে) — সেটি ফোনের Calendar অ্যাপে খুললে ঠিক সময়ে নোটিফিকেশন পাবেন।</div>
+    <div class="hint">${escapeHtml(t('remHint'))}</div>
   </div>`;
   area.querySelectorAll('.ics-btn').forEach(b=>{
     b.addEventListener('click', ()=>{
-      const t = debtTx.find(x=>x.id===b.dataset.id);
-      if(!t) return;
-      const p = debtPersons.find(x=>x.id===t.personId);
-      icsDownload('ধার ফেরত: '+(p?p.name:''), t.due, t.note||'');
+      const x = debtTx.find(y=>y.id===b.dataset.id);
+      if(!x) return;
+      const p = debtPersons.find(y=>y.id===x.personId);
+      icsDownload((t('psT'))+': '+(p?p.name:''), x.due, x.note||'');
     });
   });
 }
@@ -1423,7 +1768,7 @@ function renderCategoryBreakdown(){
   const m = document.getElementById('dashMonth').value || monthStr();
   const wrap = document.getElementById('categoryBreakdown');
   const monthExp = expenses.filter(x=>x.date && x.date.slice(0,7)===m);
-  if(monthExp.length===0){ wrap.innerHTML = '<div class="empty">এই মাসে কোনো খরচ নেই।</div>'; return; }
+  if(monthExp.length===0){ wrap.innerHTML = '<div class="empty">'+escapeHtml(t('noExpM'))+'</div>'; return; }
 
   const byCat = {};
   monthExp.forEach(e=>{ (byCat[e.category] = byCat[e.category]||[]).push(e); });
@@ -1470,7 +1815,7 @@ populateBudgetCat();
 document.getElementById('saveBudgetBtn').addEventListener('click', async ()=>{
   const cat = document.getElementById('budgetCat').value;
   const amt = parseFloat(document.getElementById('budgetAmt').value);
-  if(!amt || amt<=0){ alert('সঠিক সীমা (৳) লিখুন।'); return; }
+  if(!amt || amt<=0){ alert(t('aAmt')); return; }
   budgets[cat] = amt;
   await sset('budgets', budgets);
   document.getElementById('budgetAmt').value='';
@@ -1490,7 +1835,7 @@ function renderBudgetList(){
   categoryTotals(m).forEach(([c,v])=>{ totalsObj[c]=v; });
   const wrap = document.getElementById('budgetList');
   const cats = Object.keys(budgets);
-  if(cats.length===0){ wrap.innerHTML = '<div class="empty">এখনো কোনো বাজেট নির্ধারণ করা হয়নি।</div>'; return; }
+  if(cats.length===0){ wrap.innerHTML = '<div class="empty">'+escapeHtml(t('noB'))+'</div>'; return; }
   wrap.innerHTML = cats.map(c=>{
     const spent = totalsObj[c]||0;
     const limit = budgets[c];
@@ -1499,7 +1844,7 @@ function renderBudgetList(){
     return `<div class="budget-row">
       <div class="bh"><span>${escapeHtml(c)}</span><span>${fmt(spent)} / ${fmt(limit)}</span></div>
       <div class="progress-track"><div class="progress-fill ${cls}" style="width:${pct}%"></div></div>
-      ${spent>=limit ? '<div class="budget-alert">সীমা অতিক্রম করেছেন!</div>' : (pct>=80?'<div class="budget-alert" style="color:#D69A3E;">সীমার কাছাকাছি</div>':'')}
+      ${spent>=limit ? '<div class="budget-alert">'+escapeHtml(t('bOver'))+'</div>' : (pct>=80?'<div class="budget-alert" style="color:#D69A3E;">'+escapeHtml(t('bNear'))+'</div>':'')}
     </div>`;
   }).join('');
 }
@@ -1513,8 +1858,8 @@ function renderPie(){
   const totals = categoryTotals(m);
   const pieWrap = document.getElementById('pieWrap');
   const legend = document.getElementById('pieLegend');
-  if(totals.length===0){ pieWrap.innerHTML='<div class="empty">এই মাসে কোনো খরচ নেই।</div>'; legend.innerHTML=''; return; }
-  const total = totals.reduce((s,t)=>s+t[1],0);
+  if(totals.length===0){ pieWrap.innerHTML='<div class="empty">'+escapeHtml(t('noExpM'))+'</div>'; legend.innerHTML=''; return; }
+  const total = totals.reduce((s,x)=>s+x[1],0);
   let angle = 0;
   const cx=100, cy=100, r=90;
   let paths='';
@@ -1568,6 +1913,13 @@ function renderBarChart(){
 document.getElementById('repMonth').value = monthStr();
 document.getElementById('repMonth').addEventListener('change', renderReport);
 
+function allFlattened(){
+  return [
+    ...expenses.map(e=>({date:e.date, isInc:false, cat:e.category, note:e.note||'', amount:e.amount})),
+    ...incomes.map(i=>({date:i.date, isInc:true, cat:i.source, note:i.note||'', amount:i.amount}))
+  ];
+}
+
 function renderReport(){
   const m = document.getElementById('repMonth').value || monthStr();
   document.getElementById('repMonthLabel').textContent = monthLabel(m);
@@ -1581,46 +1933,41 @@ function renderReport(){
 
   const rows = categoryTotals(m);
   document.getElementById('repCatBody').innerHTML = rows.length===0
-    ? '<tr><td colspan="2" style="text-align:center;color:var(--ink-soft);">এই মাসে কোনো খরচ নেই।</td></tr>'
+    ? '<tr><td colspan="2" style="text-align:center;color:var(--ink-soft);">'+escapeHtml(t('noExpM'))+'</td></tr>'
     : rows.map(([c,v])=>`<tr><td>${escapeHtml(c)}</td><td>${fmt(v)}</td></tr>`).join('');
 
   const det = allFlattened()
     .filter(x=>x.date && x.date.slice(0,7)===m)
-    .sort((a,b)=> a.date.localeCompare(b.date) || a.type.localeCompare(b.type));
+    .sort((a,b)=> a.date.localeCompare(b.date) || (a.isInc===b.isInc?0:(a.isInc?1:-1)));
   document.getElementById('repDetailBody').innerHTML = det.length===0
-    ? '<tr><td colspan="5" style="text-align:center;color:var(--ink-soft);">এই মাসে কোনো লেনদেন নেই।</td></tr>'
+    ? '<tr><td colspan="5" style="text-align:center;color:var(--ink-soft);">'+escapeHtml(t('noTxM'))+'</td></tr>'
     : det.map(x=>`<tr>
         <td>${bnDate(x.date)}</td>
         <td class="lt">${escapeHtml(x.note||x.cat)}</td>
         <td class="lt">${escapeHtml(x.cat)}</td>
-        <td>${x.type}</td>
-        <td style="color:${x.type==='আয়'?'var(--gold)':'var(--maroon)'}">${x.type==='আয়'?'+':'-'} ${fmt(x.amount)}</td>
+        <td>${x.isInc? escapeHtml(t('typInc')) : escapeHtml(t('typExp'))}</td>
+        <td style="color:${x.isInc?'var(--gold)':'var(--maroon)'}">${x.isInc?'+':'-'} ${fmt(x.amount)}</td>
       </tr>`).join('');
 
   document.getElementById('printMeta').textContent =
-    'নাম: ' + (profile.name||'—') + (profile.phone? ' · মোবাইল: '+profile.phone : '') + ' · তৈরি: ' + bnDate(todayStr());
+    t('metaName')+' '+(profile.name||'—')
+    + (profile.phone? ' · '+t('metaMob')+' '+profile.phone : '')
+    + ' · '+t('metaMade')+' '+bnDate(todayStr());
 }
 
 document.getElementById('pdfBtn').addEventListener('click', ()=>{
   if(IS_WEBVIEW){
-    alert('এই অ্যাপের (APK) ভেতরে PDF সেভ করা যায় না।\n\nPDF দরকার হলে: ফোনের Chrome ব্রাউজারে আপনার GitHub লিংকটা খুলে রিপোর্ট ট্যাবে গিয়ে "PDF সেভ করুন" চাপুন।\n\nব্রাউজার ও অ্যাপের ডেটা আলাদা থাকে — ব্যাকআপ কোড দিয়ে দুই জায়গায় একই হিসাব রাখতে পারবেন।');
+    alert(t('aPdfApk'));
     return;
   }
   const m = document.getElementById('repMonth').value || monthStr();
   const oldTitle = document.title;
-  document.title = 'হিসাব খাতা - ' + monthLabel(m);
+  document.title = t('appT') + ' - ' + monthLabel(m);
   const restore = ()=>{ document.title = oldTitle; window.removeEventListener('afterprint', restore); };
   window.addEventListener('afterprint', restore);
   window.print();
   setTimeout(restore, 2000);
 });
-
-function allFlattened(){
-  return [
-    ...expenses.map(e=>({date:e.date, type:'খরচ', cat:e.category, note:e.note||'', amount:e.amount})),
-    ...incomes.map(i=>({date:i.date, type:'আয়', cat:i.source, note:i.note||'', amount:i.amount}))
-  ];
-}
 
 function downloadBlob(filename, blob){
   const a = document.createElement('a');
@@ -1642,34 +1989,34 @@ function copyRowsAsSheet(rows){
 
 document.getElementById('csvMonthBtn').addEventListener('click', async ()=>{
   const m = document.getElementById('repMonth').value || monthStr();
-  const rows = [['তারিখ','ধরন','খাত/উৎস','নোট','পরিমাণ']];
+  const rows = [[t('thDate'),t('thType'),t('thCat'),t('note'),t('thAmt')]];
   allFlattened().filter(x=>x.date && x.date.slice(0,7)===m)
     .sort((a,b)=>a.date.localeCompare(b.date))
-    .forEach(x=>rows.push([x.date,x.type,x.cat,x.note,Math.round(x.amount)]));
+    .forEach(x=>rows.push([x.date, x.isInc?t('typInc'):t('typExp'), x.cat, x.note, Math.round(x.amount)]));
   if(IS_WEBVIEW){
     const ok = await copyRowsAsSheet(rows);
-    alert(ok ? 'টেবিল ডেটা কপি হয়েছে — Google Sheets/Excel-এ পেস্ট করলেই সারি-কলাম মিলে যাবে।' : 'কপি ব্যর্থ হয়েছে।');
+    alert(ok ? t('aCopied') : t('aCpFail'));
     return;
   }
   downloadCSV('hisab-'+m+'.csv', rows);
 });
 
 document.getElementById('csvAllBtn').addEventListener('click', async ()=>{
-  const rows = [['তারিখ','ধরন','খাত/উৎস','নোট','পরিমাণ']];
+  const rows = [[t('thDate'),t('thType'),t('thCat'),t('note'),t('thAmt')]];
   allFlattened().sort((a,b)=>a.date.localeCompare(b.date))
-    .forEach(x=>rows.push([x.date,x.type,x.cat,x.note,Math.round(x.amount)]));
+    .forEach(x=>rows.push([x.date, x.isInc?t('typInc'):t('typExp'), x.cat, x.note, Math.round(x.amount)]));
   if(IS_WEBVIEW){
     const ok = await copyRowsAsSheet(rows);
-    alert(ok ? 'টেবিল ডেটা কপি হয়েছে — Google Sheets/Excel-এ পেস্ট করলেই সারি-কলাম মিলে যাবে।' : 'কপি ব্যর্থ হয়েছে।');
+    alert(ok ? t('aCopied') : t('aCpFail'));
     return;
   }
   downloadCSV('hisab-sob-data.csv', rows);
 });
 
-// ================= ব্যাকআপ / শেয়ার / রিস্টোর =================
+// ================= ব্যাকআপ / রিস্টোর =================
 function backupPayload(){
   return {
-    app:'hisab-khata', version:3, exportedAt:new Date().toISOString(),
+    app:'hisab-khata', version:4, exportedAt:new Date().toISOString(),
     data:{ expenses, incomes, debtPersons, debtTx, budgets, profile, customExpCats, customIncCats }
   };
 }
@@ -1680,7 +2027,8 @@ async function applyBackupData(d){
   expenses = d.expenses; incomes = d.incomes;
   debtPersons = d.debtPersons; debtTx = d.debtTx;
   budgets = d.budgets || {};
-  profile = d.profile || { name:'', phone:'', photo:'' };
+  profile = d.profile || { name:'', phone:'', photo:'', address:'' };
+  if(!profile.address) profile.address='';
   customExpCats = d.customExpCats || [];
   customIncCats = d.customIncCats || [];
   await sset('expenses', expenses); await sset('incomes', incomes);
@@ -1699,7 +2047,7 @@ document.getElementById('backupBtn').addEventListener('click', ()=>{
 document.getElementById('shareBackupBtn').addEventListener('click', async ()=>{
   if(IS_WEBVIEW){
     const ok = await copyText(JSON.stringify(backupPayload()));
-    alert(ok ? 'ব্যাকআপ কোড কপি করে দিলাম — WhatsApp-এ নিজের নম্বরে পেস্ট করে রাখুন।' : 'কপি ব্যর্থ — "ব্যাকআপ ডাউনলোড" বাটনটা চেষ্টা করুন।');
+    alert(ok ? t('aShareCp') : t('aShareBad'));
     return;
   }
   const p = backupPayload();
@@ -1708,7 +2056,7 @@ document.getElementById('shareBackupBtn').addEventListener('click', async ()=>{
   try{
     const file = new File([blob], name, {type:'application/json'});
     if(navigator.canShare && navigator.canShare({files:[file]})){
-      await navigator.share({ files:[file], title:'হিসাব খাতা ব্যাকআপ' });
+      await navigator.share({ files:[file], title:t('appT') });
       return;
     }
   }catch(e){
@@ -1719,21 +2067,21 @@ document.getElementById('shareBackupBtn').addEventListener('click', async ()=>{
 
 document.getElementById('copyBackupBtn').addEventListener('click', async ()=>{
   const ok = await copyText(JSON.stringify(backupPayload()));
-  alert(ok ? 'ব্যাকআপ কোড কপি হয়েছে!\n\nWhatsApp-এ নিজের নম্বরে পেস্ট করে পাঠিয়ে রাখুন বা Google Keep-এ জমান।' : 'কপি ব্যর্থ — "ব্যাকআপ ডাউনলোড" ব্যবহার করুন।');
+  alert(ok ? t('aCpOk') : t('aCpBad'));
 });
 
 document.getElementById('pasteRestoreBtn').addEventListener('click', async ()=>{
   const raw = document.getElementById('pasteRestoreText').value.trim();
-  if(!raw){ alert('আগে ব্যাকআপ কোড পেস্ট করুন।'); return; }
+  if(!raw){ alert(t('aPasteE')); return; }
   try{
     const obj = JSON.parse(raw);
-    if(!validBackup(obj.data)){ alert('এটি সঠিক ব্যাকআপ কোড নয়।'); return; }
-    if(!confirm('বর্তমান সব ডেটা মুছে ব্যাকআপ থেকে ফেরানো হবে। নিশ্চিত?')) return;
+    if(!validBackup(obj.data)){ alert(t('aRstBad')); return; }
+    if(!confirm(t('aRstC'))) return;
     await applyBackupData(obj.data);
     document.getElementById('pasteRestoreText').value='';
-    alert('রিস্টোর সফল হয়েছে!');
+    alert(t('aRstOk'));
   }catch(err){
-    alert('কোডটি পড়া যায়নি — সম্পূর্ণ ব্যাকআপ কোডটা আবার পেস্ট করুন।');
+    alert(t('aCodeBad'));
   }
 });
 
@@ -1746,12 +2094,12 @@ restoreFileInput.addEventListener('change', (e)=>{
   reader.onload = async (ev)=>{
     try{
       const obj = JSON.parse(ev.target.result);
-      if(!validBackup(obj.data)){ alert('এটি সঠিক ব্যাকআপ ফাইল নয়।'); return; }
-      if(!confirm('বর্তমান সব ডেটা মুছে ব্যাকআপ থেকে ফেরানো হবে। নিশ্চিত?')) return;
+      if(!validBackup(obj.data)){ alert(t('aFileBad')); return; }
+      if(!confirm(t('aRstC'))) return;
       await applyBackupData(obj.data);
-      alert('রিস্টোর সফল হয়েছে!');
+      alert(t('aRstOk'));
     }catch(err){
-      alert('ফাইলটি পড়া যায়নি — সঠিক ব্যাকআপ ফাইল দিন।');
+      alert(t('aFileBad'));
     }
     e.target.value='';
   };
@@ -1764,7 +2112,7 @@ async function wipeStorage(){
   }catch(e){}
   try{
     if(window.storage){
-      const keys = ['expenses','incomes','debtPersons','debtTx','budgets','profile','pin','customExpCats','customIncCats'];
+      const keys = ['expenses','incomes','debtPersons','debtTx','budgets','profile','pin','customExpCats','customIncCats','desc','lang'];
       if(window.storage.delete){
         for(const k of keys){ try{ await window.storage.delete(k,false); }catch(e2){} }
       }else if(window.storage.clear){
@@ -1780,8 +2128,8 @@ document.getElementById('dangerDotsBtn').addEventListener('click', ()=>{
   z.style.display = z.style.display==='none' ? 'block' : 'none';
 });
 document.getElementById('wipeBtn').addEventListener('click', ()=>{
-  if(!confirm('সত্যিই সব ডেটা মুছে ফেলবেন? এটি আর ফেরানো যাবে না।')) return;
-  if(!confirm('শেষ সুযোগ! আগে ব্যাকআপ নিয়েছেন? এখন সব মুছে যাবে।')) return;
+  if(!confirm(t('w1'))) return;
+  if(!confirm(t('w2'))) return;
   wipeStorage();
 });
 
@@ -1789,18 +2137,18 @@ document.getElementById('wipeBtn').addEventListener('click', ()=>{
 function renderCustomCats(){
   const wrap = document.getElementById('customCatList');
   const items = [
-    ...customExpCats.map(c=>({c, t:'খরচ'})),
-    ...customIncCats.map(c=>({c, t:'আয়'}))
+    ...customExpCats.map(c=>({c, tIsInc:false})),
+    ...customIncCats.map(c=>({c, tIsInc:true}))
   ];
-  if(items.length===0){ wrap.innerHTML='<div class="empty" style="padding:8px;">এখনো কোনো নিজের খাত যোগ করা হয়নি।</div>'; return; }
+  if(items.length===0){ wrap.innerHTML='<div class="empty" style="padding:8px;">'+escapeHtml(t('noC'))+'</div>'; return; }
   wrap.innerHTML = items.map(it=>`
     <div class="tx-row">
-      <div style="flex:1;min-width:0;">${escapeHtml(it.c)} <span class="meta">(${it.t})</span></div>
-      <button class="btn small ghost delCatBtn" data-cat="${escapeHtml(it.c)}" data-t="${it.t==='আয়'?'income':'expense'}">মুছুন</button>
+      <div style="flex:1;min-width:0;">${escapeHtml(it.c)} <span class="meta">(${it.tIsInc? escapeHtml(t('typInc')) : escapeHtml(t('typExp'))})</span></div>
+      <button class="btn small ghost delCatBtn" data-cat="${escapeHtml(it.c)}" data-t="${it.tIsInc?'income':'expense'}">${escapeHtml(t('del'))}</button>
     </div>`).join('');
   wrap.querySelectorAll('.delCatBtn').forEach(b=>{
     b.addEventListener('click', async ()=>{
-      if(!confirm('এই খাতটা কি মুছে ফেলবেন? (পুরনো এন্ট্রি অক্ষত থাকবে)')) return;
+      if(!confirm(t('aDelCat'))) return;
       if(b.dataset.t==='income') customIncCats = customIncCats.filter(c=>c!==b.dataset.cat);
       else customExpCats = customExpCats.filter(c=>c!==b.dataset.cat);
       await sset('customExpCats', customExpCats);
@@ -1812,19 +2160,43 @@ function renderCustomCats(){
 
 document.getElementById('addCatBtn').addEventListener('click', async ()=>{
   const name = document.getElementById('newCatName').value.trim();
-  if(!name){ alert('খাতের নাম লিখুন।'); return; }
-  if(name.length>30){ alert('নামটা ৩০ অক্ষরের মধ্যে রাখুন।'); return; }
+  if(!name){ alert(t('aCatName')); return; }
+  if(name.length>30){ alert(t('aCatLen')); return; }
   const isInc = document.getElementById('newCatType').value==='income';
   const exists = isInc
     ? (INCOME_SOURCES.includes(name) || customIncCats.includes(name))
     : (CATEGORIES.includes(name) || customExpCats.includes(name));
-  if(exists){ alert('এই নামের খাত আগে থেকেই আছে।'); return; }
+  if(exists){ alert(t('aCatDup')); return; }
   if(isInc) customIncCats.push(name); else customExpCats.push(name);
   await sset('customExpCats', customExpCats);
   await sset('customIncCats', customIncCats);
   document.getElementById('newCatName').value='';
   renderCustomCats(); populateCategory(); populateBudgetCat();
-  alert('খাত যোগ হয়েছে — এখন এন্ট্রি ফর্মের তালিকায় দেখা যাবে।');
+  alert(t('aCatAdded'));
+});
+
+// ================= Description =================
+function renderDesc(){
+  document.getElementById('descText').textContent = appDesc;
+}
+document.getElementById('descEditBtn').addEventListener('click', ()=>{
+  document.getElementById('descTextarea').value = appDesc;
+  document.getElementById('descEditWrap').style.display='block';
+  document.getElementById('descEditBtn').style.display='none';
+});
+document.getElementById('descCancelBtn').addEventListener('click', ()=>{
+  document.getElementById('descEditWrap').style.display='none';
+  document.getElementById('descEditBtn').style.display='inline-flex';
+});
+document.getElementById('descSaveBtn').addEventListener('click', async ()=>{
+  const tx = document.getElementById('descTextarea').value.trim();
+  if(!tx){ alert(t('aDescE')); return; }
+  appDesc = tx;
+  await sset('desc', appDesc);
+  renderDesc();
+  document.getElementById('descEditWrap').style.display='none';
+  document.getElementById('descEditBtn').style.display='inline-flex';
+  alert(t('aDescS'));
 });
 
 // ================= PIN লক =================
@@ -1835,9 +2207,7 @@ function pinHash(pin){
   return 'p' + (h>>>0).toString(36) + s.length.toString(36);
 }
 function renderPinStatus(){
-  document.getElementById('pinStatus').textContent = savedPin
-    ? '🔒 PIN লক চালু আছে — অ্যাপ খুললেই PIN চাইবে।'
-    : 'PIN লক এখন বন্ধ আছে।';
+  document.getElementById('pinStatus').textContent = savedPin ? t('pinOn') : t('pinOff');
 }
 function showLock(){
   const ov = document.getElementById('lockOverlay');
@@ -1852,9 +2222,8 @@ function tryUnlock(){
   const v = document.getElementById('lockPin').value.trim();
   if(savedPin && pinHash(v)===savedPin){
     hideLock();
-    if(!profile.name) setTimeout(openProfileModal, 350);
   }else{
-    document.getElementById('lockError').textContent = 'ভুল PIN — আবার চেষ্টা করুন।';
+    document.getElementById('lockError').textContent = t('aWrongPin');
     const card = document.getElementById('lockCard');
     card.classList.remove('shake'); void card.offsetWidth; card.classList.add('shake');
     document.getElementById('lockPin').select();
@@ -1864,8 +2233,8 @@ document.getElementById('unlockBtn').addEventListener('click', tryUnlock);
 document.getElementById('lockPin').addEventListener('keydown', e=>{ if(e.key==='Enter') tryUnlock(); });
 
 document.getElementById('forgotPinBtn').addEventListener('click', ()=>{
-  if(!confirm('PIN রিসেট করলে সব ডেটা মুছে যাবে (এন্ট্রি, ধার-দেনা, সব)। নিশ্চিত?')) return;
-  if(!confirm('এটাই শেষ সতর্কতা — সব ডেটা মুছে যাবে। চালিয়ে যাবেন?')) return;
+  if(!confirm(t('fRst1'))) return;
+  if(!confirm(t('fRst2'))) return;
   wipeStorage();
 });
 
@@ -1873,29 +2242,29 @@ document.getElementById('pinSetBtn').addEventListener('click', async ()=>{
   const cur = document.getElementById('pinCur').value.trim();
   const n1 = document.getElementById('pinNew').value.trim();
   const n2 = document.getElementById('pinNew2').value.trim();
-  if(!/^\d{4,8}$/.test(n1)){ alert('নতুন PIN অবশ্যই ৪ থেকে ৮ সংখ্যার হতে হবে।'); return; }
-  if(n1!==n2){ alert('দুইবার লেখা নতুন PIN মিলছে না।'); return; }
-  if(savedPin && pinHash(cur)!==savedPin){ alert('বর্তমান PIN ভুল হয়েছে।'); return; }
+  if(!/^\d{4,8}$/.test(n1)){ alert(t('aPinLen')); return; }
+  if(n1!==n2){ alert(t('aPinMis')); return; }
+  if(savedPin && pinHash(cur)!==savedPin){ alert(t('aWrongPin')); return; }
   savedPin = pinHash(n1);
   await sset('pin', savedPin);
   document.getElementById('pinCur').value=''; document.getElementById('pinNew').value=''; document.getElementById('pinNew2').value='';
   renderPinStatus();
-  alert('PIN সেট হয়েছে। এখন থেকে অ্যাপ খুললেই PIN চাইবে।');
+  alert(t('aPinSaved'));
 });
 
 document.getElementById('pinRemoveBtn').addEventListener('click', async ()=>{
-  if(!savedPin){ alert('কোনো PIN সেট করা নেই।'); return; }
+  if(!savedPin){ alert(t('aNoPin')); return; }
   const cur = document.getElementById('pinCur').value.trim();
-  if(pinHash(cur)!==savedPin){ alert('বর্তমান PIN ভুল হয়েছে।'); return; }
+  if(pinHash(cur)!==savedPin){ alert(t('aWrongPin')); return; }
   savedPin = null;
   await sset('pin', null);
   document.getElementById('pinCur').value=''; document.getElementById('pinNew').value=''; document.getElementById('pinNew2').value='';
   renderPinStatus();
-  alert('PIN লক সরানো হয়েছে।');
+  alert(t('aPinRm'));
 });
 
 document.getElementById('lockNowBtn').addEventListener('click', ()=>{
-  if(!savedPin){ alert('আগে PIN সেট করুন।'); return; }
+  if(!savedPin){ alert(t('aSetFirst')); return; }
   showLock();
 });
 
@@ -1905,6 +2274,7 @@ const profileBackdrop = document.getElementById('profileBackdrop');
 function openProfileModal(){
   document.getElementById('profileNameInput').value = profile.name||'';
   document.getElementById('profilePhoneInput').value = profile.phone||'';
+  document.getElementById('profileAddressInput').value = profile.address||'';
   pendingProfilePhoto = null;
   if(profile.photo) replacePreview('profilePhotoPreview', true, profile.photo, '', 'preview');
   else replacePreview('profilePhotoPreview', false, null, (profile.name||'?').trim().charAt(0)||'?', 'preview');
@@ -1929,6 +2299,7 @@ document.getElementById('profilePhotoInput').addEventListener('change', e=>{
 document.getElementById('profileSaveBtn').addEventListener('click', async ()=>{
   profile.name = document.getElementById('profileNameInput').value.trim();
   profile.phone = document.getElementById('profilePhoneInput').value.trim();
+  profile.address = document.getElementById('profileAddressInput').value.trim();
   if(pendingProfilePhoto) profile.photo = pendingProfilePhoto;
   await sset('profile', profile);
   pendingProfilePhoto = null;
@@ -1940,17 +2311,29 @@ document.getElementById('profileSaveBtn').addEventListener('click', async ()=>{
 function updateCoverUI(){
   if(profile.photo) replacePreview('coverAvatar', true, profile.photo, '', 'cover-avatar');
   else replacePreview('coverAvatar', false, null, (profile.name||'?').trim().charAt(0)||'?', 'cover-avatar');
-  document.getElementById('coverName').textContent = profile.name || 'নাম যোগ করুন';
+  document.getElementById('coverName').textContent = profile.name || t('addNm');
   document.getElementById('coverPhone').textContent = profile.phone || '';
+  document.getElementById('coverAddr').textContent = profile.address || '';
 }
+
+// ================= ভাষা সুইচ =================
+document.querySelectorAll('#langSeg button').forEach(b=>{
+  b.addEventListener('click', async ()=>{
+    if(LANG===b.dataset.lang) return;
+    LANG = b.dataset.lang;
+    await sset('lang', LANG);
+    applyLang();
+  });
+});
 
 // ================= শুরু =================
 (async function init(){
   setupPWA();
   await loadAll();
   populateCategory(); populateBudgetCat(); renderQuickChips();
-  renderPinStatus();
   updateCoverUI();
+  applyLang();
+  setupContactPhoto();
   renderCustomCats();
   renderAll();
   if(savedPin){
